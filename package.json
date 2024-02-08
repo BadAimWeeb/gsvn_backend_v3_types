@@ -1,0 +1,32 @@
+{
+  "name": "gsvn_backend_v3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@badaimweeb/id-system-backend": "git+https://git.badaimweeb.me/BadAimWeeb/id-system-backend-types#3cd05a1f46bc83f26046789474fbc035ae2c03cc",
+    "@badaimweeb/js-dtsocket": "^0.7.0",
+    "@badaimweeb/js-protov2d": "^1.0.11",
+    "@types/express": "^4.17.21",
+    "@types/ws": "^8.5.10",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "node-fetch": "^3.3.2",
+    "ws": "^8.16.0",
+    "zod": "^3.22.4"
+  }
+}
