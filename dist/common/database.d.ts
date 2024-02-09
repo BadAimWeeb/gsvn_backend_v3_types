@@ -38,3 +38,7 @@ export declare const DBTransactions: Collection<{
     };
     createdAt: number;
 }>;
+export declare const DBConfig: Collection<{
+    key: string;
+    value: any;
+}>;
