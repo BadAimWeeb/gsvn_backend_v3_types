@@ -36,6 +36,7 @@ export declare const DBTransactions: Collection<{
         purchasePointer?: number | undefined;
         depositPointer?: number | undefined;
     };
+    note: string;
     createdAt: number;
 }>;
 export declare const DBConfig: Collection<{
