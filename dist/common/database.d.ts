@@ -7,6 +7,12 @@ export declare const DBUsers: Collection<{
     cachedNameOrder: "first-last" | "last-first";
     cachedUsername: string;
     balance: number;
+    /**
+     * 0: normal user
+     * 1: admin
+     * 2: fe test
+     */
+    permission: number;
     createdAt: number;
     updatedAt: number;
 }>;
