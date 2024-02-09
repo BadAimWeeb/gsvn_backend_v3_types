@@ -33,8 +33,8 @@ export declare const DBTransactions: Collection<{
     tag: string;
     extraData: {
         [key: string]: any;
-        purchasePointer?: string | undefined;
-        depositPointer?: string | undefined;
+        purchasePointer?: number | undefined;
+        depositPointer?: number | undefined;
     };
     createdAt: number;
 }>;
