@@ -6,7 +6,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, import("mo
     oldBalance: number;
     change: number;
     newBalance: number;
-    tag: string;
+    tag: "deposit" | "withdraw" | "charge" | "refund" | "bonus" | "other";
     extraData: {
         [key: string]: any;
         purchasePointer?: number | undefined;

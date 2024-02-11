@@ -33,7 +33,7 @@ export declare const DBTransactions: Collection<{
     oldBalance: number;
     change: number;
     newBalance: number;
-    tag: string;
+    tag: "deposit" | "withdraw" | "charge" | "refund" | "bonus" | "other";
     extraData: {
         [key: string]: any;
         purchasePointer?: number | undefined;
@@ -70,32 +70,33 @@ export type ConfigType = {
 };
 export declare function getDBConfig<T extends keyof ConfigType>(key: T): Promise<ConfigType[T] | null>;
 export declare function setDBConfig<T extends keyof ConfigType>(key: T, value: ConfigType[T]): Promise<void>;
-export declare function getCounter(key: string): Promise<any>;
+export declare function getCounter(key: string): Promise<number>;
 export declare const DBPayments: Collection<{
     pmid: number;
     remotePMID?: string | undefined;
     target: string;
     amount: number;
     status: "pending" | "success" | "failed";
+    reason?: string | undefined;
+    createdAt: number;
+    updatedAt: number;
+} & ({
     type: string;
     input: any;
     instruction: any;
     output: any;
-    reason?: string | undefined;
-    createdAt: number;
-    updatedAt: number;
-} & {
+} | {
     type: "vn-phone-card";
     input: {
         serial: string;
-        pin: string;
+        code: string;
         telco: string;
-        value: string;
+        originalValue: string;
         fee: number;
         resolver: string;
     };
     instruction: null;
-    output: {
+    output?: {
         id: string;
         amount: number;
         originalValue: number;
@@ -103,5 +104,39 @@ export declare const DBPayments: Collection<{
         date: Date;
         message: string;
         penalty: boolean;
+    } | undefined;
+} | {
+    type: "thesieure";
+    input: {
+        resolver: string;
+        originalValue: string;
     };
-}>;
+    instruction?: {
+        account: string;
+        amount: number;
+        message: string;
+        timeout: number;
+    } | undefined;
+    output?: {
+        /**
+         * The ID of the transaction, or notification. Should be unique.
+         */
+        id: string;
+        /**
+         * Amount of money involved in the transaction.
+         */
+        amount: number;
+        /**
+         * The currency of the transaction.
+         */
+        currency: string;
+        /**
+         * The date of the transaction.
+         */
+        date: Date;
+        /**
+         * Transaction message.
+         */
+        message: string;
+    } | undefined;
+})>;

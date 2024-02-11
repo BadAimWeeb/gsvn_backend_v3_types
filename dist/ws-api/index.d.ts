@@ -1,3 +1,5 @@
+import createTSRTransaction from "./api/general/createTSRTransaction.js";
+import depositPhoneCard from "./api/general/depositPhoneCard.js";
 import getEmails from "./api/general/getEmails.js";
 import getGamepasses from "./api/general/getGamepasses.js";
 import getPrivacySetting from "./api/general/getPrivacySetting.js";
@@ -13,4 +15,4 @@ import switchToken from "./api/general/switchToken.js";
 import admin_updateGamepasses from "./api/admin/admin_updateGamepasses.js";
 import admin_updateRobuxLimit from "./api/admin/admin_updateRobuxLimit.js";
 import admin_updateRobuxRate from "./api/admin/admin_updateRobuxRate.js";
-export { getEmails, getGamepasses, getPrivacySetting, getRobuxLimit, getRobuxRate, getUserInfo, getVNPhoneCardFee, getTransactions, login, logout, setPrivacySetting, switchToken, admin_updateGamepasses, admin_updateRobuxLimit, admin_updateRobuxRate };
+export { createTSRTransaction, depositPhoneCard, getEmails, getGamepasses, getPrivacySetting, getRobuxLimit, getRobuxRate, getUserInfo, getVNPhoneCardFee, getTransactions, login, logout, setPrivacySetting, switchToken, admin_updateGamepasses, admin_updateRobuxLimit, admin_updateRobuxRate };
