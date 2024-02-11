@@ -8,6 +8,8 @@ export type EventTable = {
     csEvents: {};
     scEvents: {
         balanceUpdated: (balance: number) => void;
+        notification: (severity: 'error' | 'success' | 'warning' | 'info', message: string) => void;
+        depositFinished: (paymentID: number) => void;
     };
 };
 export declare enum ErrorCode {

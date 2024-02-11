@@ -63,6 +63,44 @@ export type ConfigType = {
             };
         };
     };
+    paymentCount: number;
+    transactionCount: number;
+    purchaseCount: number;
 };
 export declare function getDBConfig<T extends keyof ConfigType>(key: T): Promise<ConfigType[T] | null>;
 export declare function setDBConfig<T extends keyof ConfigType>(key: T, value: ConfigType[T]): Promise<void>;
+export declare function getCounter(key: string): Promise<any>;
+export declare const DBPayments: Collection<{
+    pmid: number;
+    remotePMID?: string | undefined;
+    target: string;
+    amount: number;
+    status: "pending" | "success" | "failed";
+    type: string;
+    input: any;
+    instruction: any;
+    output: any;
+    reason?: string | undefined;
+    createdAt: number;
+    updatedAt: number;
+} & {
+    type: "vn-phone-card";
+    input: {
+        serial: string;
+        pin: string;
+        telco: string;
+        value: string;
+        fee: number;
+        resolver: string;
+    };
+    instruction: null;
+    output: {
+        id: string;
+        amount: number;
+        originalValue: number;
+        currency: string;
+        date: Date;
+        message: string;
+        penalty: boolean;
+    };
+}>;
