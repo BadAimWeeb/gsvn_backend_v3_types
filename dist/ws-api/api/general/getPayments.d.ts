@@ -5,7 +5,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, import("mo
     remotePMID?: string | undefined;
     target: string;
     amount: number;
-    status: "success" | "pending" | "failed";
+    status: "pending" | "success" | "failed";
     reason?: string | undefined;
     createdAt: number;
     updatedAt: number;
