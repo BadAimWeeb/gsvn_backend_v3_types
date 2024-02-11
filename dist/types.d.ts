@@ -1,4 +1,6 @@
-export type GlobalState = {};
+export type GlobalState = {
+    robuxRate?: number;
+};
 export type LocalState = {
     sessionToken?: string;
 };
@@ -13,5 +15,6 @@ export declare enum ErrorCode {
     UNKNOWN_ERROR = "GSVN#0",
     INSUFFICIENT_EXCHANGE_TOKEN_SCOPE = "GSVN#1",
     INVALID_EXCHANGE_TOKEN = "GSVN#2",
-    NOT_LOGGED_IN = "GSVN#3"
+    NOT_LOGGED_IN = "GSVN#3",
+    INSUFFICIENT_PERMISSION = "GSVN#4"
 }

@@ -4,7 +4,7 @@ import type { WebSocket } from "ws";
 import { type ServerContext } from "@badaimweeb/js-dtsocket";
 import type { GlobalState, LocalState, EventTable } from "./types.js";
 import type { IncomingMessage } from "http";
-import { DTSocketServer_CSocket } from "@badaimweeb/js-dtsocket/dist/server_csocket.js";
+import type { DTSocketServer_CSocket } from "@badaimweeb/js-dtsocket/dist/server_csocket.js";
 export declare const GState: GlobalState;
 export declare const p: {
     input: <TIn>(parser: {

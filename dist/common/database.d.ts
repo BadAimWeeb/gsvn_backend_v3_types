@@ -43,3 +43,23 @@ export declare const DBConfig: Collection<{
     key: string;
     value: any;
 }>;
+export type ConfigType = {
+    robuxRate: number;
+    robuxLimit: {
+        low: [amount: number, taxed: boolean];
+        high: [amount: number, taxed: boolean];
+    };
+    gamepasses: {
+        [game: string]: {
+            displayName: string;
+            passes: {
+                [pass: string]: {
+                    displayName: string;
+                    price: number;
+                };
+            };
+        };
+    };
+};
+export declare function getDBConfig<T extends keyof ConfigType>(key: T): Promise<ConfigType[T] | null>;
+export declare function setDBConfig<T extends keyof ConfigType>(key: T, value: ConfigType[T]): Promise<void>;
