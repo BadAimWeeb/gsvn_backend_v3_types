@@ -1,4 +1,5 @@
 import getEmails from "./api/general/getEmails.js";
+import getGamepasses from "./api/general/getGamepasses.js";
 import getRobuxLimit from "./api/general/getRobuxLimit.js";
 import getRobuxRate from "./api/general/getRobuxRate.js";
 import getTransactions from "./api/general/getTransactions.js";
@@ -9,4 +10,4 @@ import switchToken from "./api/general/switchToken.js";
 import admin_updateGamepasses from "./api/admin/admin_updateGamepasses.js";
 import admin_updateRobuxLimit from "./api/admin/admin_updateRobuxLimit.js";
 import admin_updateRobuxRate from "./api/admin/admin_updateRobuxRate.js";
-export { getEmails, getRobuxLimit, getRobuxRate, getUserInfo, getTransactions, login, logout, switchToken, admin_updateGamepasses, admin_updateRobuxLimit, admin_updateRobuxRate };
+export { getEmails, getGamepasses, getRobuxLimit, getRobuxRate, getUserInfo, getTransactions, login, logout, switchToken, admin_updateGamepasses, admin_updateRobuxLimit, admin_updateRobuxRate };
