@@ -7,6 +7,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, {
             [pass: string]: {
                 displayName: string;
                 price: number;
+                color?: string | undefined;
             };
         };
     };

@@ -59,6 +59,7 @@ export type ConfigType = {
                 [pass: string]: {
                     displayName: string;
                     price: number;
+                    color?: string;
                 };
             };
         };
