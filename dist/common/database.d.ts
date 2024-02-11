@@ -13,6 +13,9 @@ export declare const DBUsers: Collection<{
      * 2: fe test
      */
     permission: number;
+    privacy: {
+        usernamePublic: boolean;
+    };
     createdAt: number;
     updatedAt: number;
 }>;
