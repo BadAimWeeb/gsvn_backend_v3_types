@@ -109,13 +109,48 @@ export declare const DBPayments: Collection<{
     type: "thesieure";
     input: {
         resolver: string;
-        originalValue: string;
+        originalValue: number;
     };
     instruction?: {
         account: string;
         amount: number;
         message: string;
         timeout: number;
+    } | undefined;
+    output?: {
+        /**
+         * The ID of the transaction, or notification. Should be unique.
+         */
+        id: string;
+        /**
+         * Amount of money involved in the transaction.
+         */
+        amount: number;
+        /**
+         * The currency of the transaction.
+         */
+        currency: string;
+        /**
+         * The date of the transaction.
+         */
+        date: Date;
+        /**
+         * Transaction message.
+         */
+        message: string;
+    } | undefined;
+} | {
+    type: "vnbank";
+    input: {
+        resolver: string;
+        originalValue: number;
+    };
+    instruction?: {
+        account: string;
+        amount: number;
+        message: string;
+        timeout: number;
+        qr: string;
     } | undefined;
     output?: {
         /**
