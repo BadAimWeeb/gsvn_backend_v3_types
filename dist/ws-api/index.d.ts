@@ -1,3 +1,4 @@
+import buyRobux from "./api/general/buyRobux.js";
 import createTSRTransaction from "./api/general/createTSRTransaction.js";
 import createVNBankTransaction from "./api/general/createVNBankTransaction.js";
 import depositPhoneCard from "./api/general/depositPhoneCard.js";
@@ -23,4 +24,4 @@ import admin_getUserList from "./api/admin/admin_getUserList.js";
 import admin_updateGamepasses from "./api/admin/admin_updateGamepasses.js";
 import admin_updateRobuxLimit from "./api/admin/admin_updateRobuxLimit.js";
 import admin_updateRobuxRate from "./api/admin/admin_updateRobuxRate.js";
-export { createTSRTransaction, createVNBankTransaction, depositPhoneCard, getEmails, getGamepasses, getPayments, getPrivacySetting, getRobuxLimit, getRobuxRate, getUserInfo, getVNBanks, getVNPhoneCardDisplayName, getVNPhoneCardFee, getTransactions, login, logout, setPrivacySetting, switchToken, admin_changeUserPermission, admin_createTransaction, admin_getUser, admin_getUserList, admin_updateGamepasses, admin_updateRobuxLimit, admin_updateRobuxRate };
+export { buyRobux, createTSRTransaction, createVNBankTransaction, depositPhoneCard, getEmails, getGamepasses, getPayments, getPrivacySetting, getRobuxLimit, getRobuxRate, getUserInfo, getVNBanks, getVNPhoneCardDisplayName, getVNPhoneCardFee, getTransactions, login, logout, setPrivacySetting, switchToken, admin_changeUserPermission, admin_createTransaction, admin_getUser, admin_getUserList, admin_updateGamepasses, admin_updateRobuxLimit, admin_updateRobuxRate };

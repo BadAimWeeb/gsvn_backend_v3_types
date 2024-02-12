@@ -19,5 +19,7 @@ export declare enum ErrorCode {
     INVALID_EXCHANGE_TOKEN = "GSVN#2",
     NOT_LOGGED_IN = "GSVN#3",
     INSUFFICIENT_PERMISSION = "GSVN#4",
-    NOT_FOUND = "GSVN#5"
+    NOT_FOUND = "GSVN#5",
+    INVALID_AMOUNT = "GSVN#6",
+    MISMATCHED_AMOUNT = "GSVN#7"
 }

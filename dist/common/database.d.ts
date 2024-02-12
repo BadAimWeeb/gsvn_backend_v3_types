@@ -175,3 +175,21 @@ export declare const DBPayments: Collection<{
         message: string;
     } | undefined;
 })>;
+export declare const DBPurchases: Collection<{
+    pcid: number;
+    target: string;
+    value: number;
+    status: "pending" | "processing" | "done" | "cancelled";
+    note?: string | undefined;
+    createdAt: number;
+    updatedAt: number;
+} & ({
+    type: string;
+    data: any;
+} | {
+    type: "robux";
+    data: {
+        amount: number;
+        gamepassLink: string;
+    };
+})>;
