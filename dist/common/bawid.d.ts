@@ -1,4 +1,4 @@
 import { DTSocketClient } from "@badaimweeb/js-dtsocket";
-import ProtoV2dSession from "@badaimweeb/js-protov2d/dist/session";
-declare let idServer: DTSocketClient<import("@badaimweeb/js-dtsocket").DTSocketServer<import("@badaimweeb/js-dtsocket").ServerContext<import("@badaimweeb/id-system-backend/dist/types.js").GlobalState, import("@badaimweeb/id-system-backend/dist/types.js").LocalState, import("@badaimweeb/id-system-backend/dist/types.js").EventTable, ProtoV2dSession<any>, typeof import("@badaimweeb/id-system-backend/dist/ws-api/index.js")>>, import("@badaimweeb/js-dtsocket").Socket, import("@badaimweeb/js-dtsocket").ServerContext<import("@badaimweeb/id-system-backend/dist/types.js").GlobalState, import("@badaimweeb/id-system-backend/dist/types.js").LocalState, import("@badaimweeb/id-system-backend/dist/types.js").EventTable, ProtoV2dSession<any>, typeof import("@badaimweeb/id-system-backend/dist/ws-api/index.js")>>;
+import type { Server as IDServer } from "@badaimweeb/id-system-backend";
+declare let idServer: DTSocketClient<IDServer>;
 export default idServer;
