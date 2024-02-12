@@ -189,7 +189,9 @@ export declare const DBPurchases: Collection<{
 } | {
     type: "robux";
     data: {
-        amount: number;
-        gamepassLink: string;
+        amountTaxed: number;
+        amountUntaxed: number;
+        gamepassID: string;
+        isSVV: boolean;
     };
 })>;
