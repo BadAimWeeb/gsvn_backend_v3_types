@@ -1,5 +1,6 @@
 export type GlobalState = {
     robuxRate?: number;
+    lockTopDepositCalc?: Promise<void>;
 };
 export type LocalState = {
     sessionToken?: string;

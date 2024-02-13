@@ -64,9 +64,16 @@ export type ConfigType = {
             };
         };
     };
-    paymentCount: number;
-    transactionCount: number;
-    purchaseCount: number;
+    cacheTopDeposit: {
+        updatedAt: number;
+        data: {
+            uuid: string;
+            amount: number;
+        }[];
+    } | null;
+    payment: number;
+    transaction: number;
+    purchase: number;
 };
 export declare function getDBConfig<T extends keyof ConfigType>(key: T): Promise<ConfigType[T] | null>;
 export declare function setDBConfig<T extends keyof ConfigType>(key: T, value: ConfigType[T]): Promise<void>;
@@ -202,9 +209,9 @@ export declare const DBPurchases: Collection<{
         cachedGamePassesName: {
             [pass: string]: string;
         };
-        passesRefundValue?: {
+        passesRefundValue: {
             [pass: string]: number;
-        } | undefined;
+        };
         username: string;
         password: string;
         amountRobux: number;

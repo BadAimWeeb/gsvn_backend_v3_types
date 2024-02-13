@@ -27,9 +27,9 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, Pick<impor
         cachedGamePassesName: {
             [pass: string]: string;
         };
-        passesRefundValue?: {
+        passesRefundValue: {
             [pass: string]: number;
-        } | undefined;
+        };
         username: string;
         password: string;
         amountRobux: number;
