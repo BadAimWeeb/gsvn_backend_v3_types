@@ -181,6 +181,7 @@ export declare const DBPurchases: Collection<{
     value: number;
     status: "pending" | "processing" | "done" | "cancelled";
     note?: string | undefined;
+    internalNote?: string | undefined;
     createdAt: number;
     updatedAt: number;
 } & ({
@@ -193,5 +194,18 @@ export declare const DBPurchases: Collection<{
         amountUntaxed: number;
         gamepassID: string;
         isSVV: boolean;
+    };
+} | {
+    type: "roblox-gamepass";
+    data: {
+        game: string;
+        passes: string[];
+        cachedGameName: string;
+        cachedGamePassesName: {
+            [pass: string]: string;
+        };
+        username: string;
+        password: string;
+        amountRobux: number;
     };
 })>;
