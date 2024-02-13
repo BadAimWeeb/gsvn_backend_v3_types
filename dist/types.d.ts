@@ -16,7 +16,14 @@ export type EventTable = {
         balanceUpdated: (balance: number) => void;
         notification: (severity: 'error' | 'success' | 'warning' | 'info', message: string) => void;
         depositFinished: (paymentID: number) => void;
-        newPurchase: (createdAt: number, username: string, type: string) => void;
+        newPurchase: (createdAt: number, username: string, data: {
+            type: "robux";
+            amount: number;
+        } | {
+            type: "roblox-gamepass";
+            game: string;
+            passes: string[];
+        }) => void;
     };
 };
 export declare enum ErrorCode {
