@@ -1,19 +1,26 @@
 /// <reference types="ws" />
 /// <reference types="node" />
-declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, {
+declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, Pick<import("mongodb").WithId<{
     pcid: number;
+    target: string;
     value: number;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
-    note: string | undefined;
+    note?: string | undefined;
+    internalNote?: string | undefined;
     createdAt: number;
     updatedAt: number;
-    type: "robux" | "roblox-gamepass";
+} & ({
+    type: "robux";
     data: {
         amountTaxed: number;
         amountUntaxed: number;
         gamepassID: string;
         isSVV: boolean;
-    } | {
+    };
+    partialProcessedData?: null | undefined;
+} | {
+    type: "roblox-gamepass";
+    data: {
         game: string;
         passes: string[];
         cachedGameName: string;
@@ -27,10 +34,10 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, {
         password: string;
         amountRobux: number;
     };
-    partialProcessedData: {
+    partialProcessedData?: {
         passesProcessed: string[];
-    } | null | undefined;
-}[], import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {
+    } | undefined;
+})>, "value" | "pcid" | "data" | "status" | "createdAt" | "updatedAt" | "type" | "note" | "partialProcessedData">[], import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {
     req: import("http").IncomingMessage;
 }>>>;
 export default func;
