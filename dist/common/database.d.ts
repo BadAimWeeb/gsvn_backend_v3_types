@@ -179,15 +179,12 @@ export declare const DBPurchases: Collection<{
     pcid: number;
     target: string;
     value: number;
-    status: "pending" | "processing" | "done" | "cancelled";
+    status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
     note?: string | undefined;
     internalNote?: string | undefined;
     createdAt: number;
     updatedAt: number;
 } & ({
-    type: string;
-    data: any;
-} | {
     type: "robux";
     data: {
         amountTaxed: number;
@@ -195,6 +192,7 @@ export declare const DBPurchases: Collection<{
         gamepassID: string;
         isSVV: boolean;
     };
+    partialProcessedData?: null | undefined;
 } | {
     type: "roblox-gamepass";
     data: {
@@ -204,8 +202,14 @@ export declare const DBPurchases: Collection<{
         cachedGamePassesName: {
             [pass: string]: string;
         };
+        passesRefundValue?: {
+            [pass: string]: number;
+        } | undefined;
         username: string;
         password: string;
         amountRobux: number;
     };
+    partialProcessedData?: {
+        passesProcessed: string[];
+    } | undefined;
 })>;
