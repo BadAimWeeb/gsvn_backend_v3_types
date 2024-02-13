@@ -11,6 +11,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, Pick<impor
         [key: string]: any;
         purchasePointer?: number | undefined;
         depositPointer?: number | undefined;
+        gsvnUsernameMigration?: string | undefined;
     };
     note: string;
     createdAt: number;

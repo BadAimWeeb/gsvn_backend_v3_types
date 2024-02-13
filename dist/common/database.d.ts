@@ -38,6 +38,7 @@ export declare const DBTransactions: Collection<{
         [key: string]: any;
         purchasePointer?: number | undefined;
         depositPointer?: number | undefined;
+        gsvnUsernameMigration?: string | undefined;
     };
     note: string;
     createdAt: number;
@@ -220,3 +221,11 @@ export declare const DBPurchases: Collection<{
         passesProcessed: string[];
     } | undefined;
 })>;
+/**
+ * For migration purposes only. This database is not used actively.
+ */
+export declare const DBUserMigration: Collection<{
+    username: string;
+    password: string;
+    balance: number;
+}>;

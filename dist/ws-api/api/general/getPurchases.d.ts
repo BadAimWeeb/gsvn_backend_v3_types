@@ -37,7 +37,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, Pick<impor
     partialProcessedData?: {
         passesProcessed: string[];
     } | undefined;
-})>, "value" | "pcid" | "data" | "status" | "createdAt" | "updatedAt" | "type" | "note" | "partialProcessedData">[], import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {
+})>, "value" | "pcid" | "createdAt" | "data" | "status" | "updatedAt" | "type" | "note" | "partialProcessedData">[], import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {
     req: import("http").IncomingMessage;
 }>>>;
 export default func;

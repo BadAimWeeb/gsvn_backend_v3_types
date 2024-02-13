@@ -1,6 +1,11 @@
 export type GlobalState = {
     robuxRate?: number;
     lockTopDepositCalc?: Promise<void>;
+    migrationClaim: Map<string, {
+        expires: number;
+        username: string;
+    }>;
+    lockMigrationClaim: Set<string>;
 };
 export type LocalState = {
     sessionToken?: string;
@@ -11,6 +16,7 @@ export type EventTable = {
         balanceUpdated: (balance: number) => void;
         notification: (severity: 'error' | 'success' | 'warning' | 'info', message: string) => void;
         depositFinished: (paymentID: number) => void;
+        newPurchase: (createdAt: number, username: string, type: string) => void;
     };
 };
 export declare enum ErrorCode {

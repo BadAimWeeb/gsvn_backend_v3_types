@@ -3,6 +3,7 @@
 declare const func: import("@badaimweeb/js-dtsocket").Procedure<{
     authToken: string;
     redirectURI: string;
+    oldLoginClaim?: string | undefined;
 }, [uuid: string, token: string], import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {
     req: import("http").IncomingMessage;
 }>>>;

@@ -13,6 +13,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^4.17.21",
+    "@types/ws": "^8.5.10",
     "@types/node": "^20.11.16",
     "typescript": "^5.3.3"
   },
@@ -21,8 +24,7 @@
     "@badaimweeb/js-dtsocket": "^0.7.1",
     "@badaimweeb/js-protov2d": "^1.0.12",
     "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#cb0566dfe5b57d859c0ecc4d63fd97aa6de638e5",
-    "@types/express": "^4.17.21",
-    "@types/ws": "^8.5.10",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongodb": "^6.3.0",

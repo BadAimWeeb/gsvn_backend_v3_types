@@ -73,7 +73,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, Pick<impor
         date: Date;
         message: string;
     } | undefined;
-})>, "pmid" | "remotePMID" | "amount" | "status" | "reason" | "input" | "instruction" | "output" | "createdAt" | "updatedAt" | "type">[], import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {
+})>, "pmid" | "remotePMID" | "createdAt" | "amount" | "status" | "reason" | "input" | "instruction" | "output" | "updatedAt" | "type">[], import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {
     req: import("http").IncomingMessage;
 }>>>;
 export default func;
