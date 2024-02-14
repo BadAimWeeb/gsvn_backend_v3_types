@@ -1,6 +1,5 @@
 import "dotenv/config";
 import "./scripts/databaseMigration.js";
-import "./scripts/cleaningClock.js";
 import "./scripts/autoupdate.js";
 import { type Session } from "@badaimweeb/js-protov2d";
 import { DTSocketServer, type ServerContext } from "@badaimweeb/js-dtsocket";
