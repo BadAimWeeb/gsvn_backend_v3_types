@@ -46,6 +46,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<{
         username: string;
         password: string;
         twoFactor: string;
+        mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
 })> | null, import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {

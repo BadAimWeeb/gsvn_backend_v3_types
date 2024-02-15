@@ -227,6 +227,7 @@ export declare const DBPurchases: Collection<{
         username: string;
         password: string;
         twoFactor: string;
+        mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
 })>;

@@ -43,6 +43,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, Pick<impor
         username: string;
         password: string;
         twoFactor: string;
+        mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
 })>, "value" | "pcid" | "createdAt" | "data" | "status" | "updatedAt" | "type" | "note" | "partialProcessedData">[], import("@badaimweeb/js-dtsocket").ServerContext<import("../../../types.js").GlobalState, import("../../../types.js").LocalState, import("../../../types.js").EventTable, import("@badaimweeb/js-protov2d").Session<import("ws").WebSocket & {
