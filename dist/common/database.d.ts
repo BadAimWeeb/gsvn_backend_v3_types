@@ -65,6 +65,7 @@ export type ConfigType = {
             };
         };
     };
+    minecraftPremiumRate: number;
     cacheTopDeposit: {
         updatedAt: number;
         data: {
