@@ -7,7 +7,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<number, {
     note: string | undefined;
     createdAt: number;
     updatedAt: number;
-    type: "robux" | "roblox-gamepass";
+    type: "robux" | "roblox-gamepass" | "minecraft";
     data: {
         game: string;
         passes: string[];

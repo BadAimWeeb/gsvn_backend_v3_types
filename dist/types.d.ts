@@ -23,6 +23,8 @@ export type EventTable = {
             type: "roblox-gamepass";
             game: string;
             passes: string[];
+        } | {
+            type: "minecraft";
         }) => void;
     };
 };

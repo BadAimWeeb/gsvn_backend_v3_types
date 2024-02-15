@@ -221,6 +221,14 @@ export declare const DBPurchases: Collection<{
     partialProcessedData?: {
         passesProcessed: string[];
     } | undefined;
+} | {
+    type: "minecraft";
+    data: {
+        username: string;
+        password: string;
+        twoFactor: string;
+    };
+    partialProcessedData?: null | undefined;
 })>;
 /**
  * For migration purposes only. This database is not used actively.
