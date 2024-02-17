@@ -86,6 +86,7 @@ export declare const DBPayments: Collection<{
     target: string;
     amount: number;
     status: "pending" | "success" | "failed";
+    auto?: boolean | undefined;
     reason?: string | undefined;
     createdAt: number;
     updatedAt: number;

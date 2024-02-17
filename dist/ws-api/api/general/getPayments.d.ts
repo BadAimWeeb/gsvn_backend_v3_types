@@ -6,6 +6,7 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, Pick<impor
     target: string;
     amount: number;
     status: "pending" | "success" | "failed";
+    auto?: boolean | undefined;
     reason?: string | undefined;
     createdAt: number;
     updatedAt: number;
