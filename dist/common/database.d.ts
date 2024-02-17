@@ -231,6 +231,16 @@ export declare const DBPurchases: Collection<{
     };
     partialProcessedData?: null | undefined;
 })>;
+export declare const DBRobloxAccounts: Collection<{
+    robloxID: number;
+    username: string;
+    cookie: string;
+    robux: number;
+    status: "active" | "banned";
+    note: string;
+    createdAt: number;
+    updatedAt: number;
+}>;
 /**
  * For migration purposes only. This database is not used actively.
  */
