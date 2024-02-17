@@ -1,9 +1,6 @@
 /// <reference types="ws" />
 /// <reference types="node" />
-declare const func: import("@badaimweeb/js-dtsocket").Procedure<{
-    note: string;
-    cookie: string;
-}, import("mongodb").WithId<{
+declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, import("mongodb").WithId<{
     robloxID: number;
     username: string;
     cookie: string;
