@@ -24,7 +24,7 @@
     "@badaimweeb/id-system-backend": "git+https://git.badaimweeb.me/BadAimWeeb/id-system-backend-types#03999da3f9901aef70129e15f7d7b062285a5356",
     "@badaimweeb/js-dtsocket": "^0.7.1",
     "@badaimweeb/js-protov2d": "^1.0.12",
-    "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#2abe10385c2b4a928ab24c7839ef38613ee87ec7",
+    "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#af44bce489fe6a294623430bbd58a5f3a0fafc83",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",

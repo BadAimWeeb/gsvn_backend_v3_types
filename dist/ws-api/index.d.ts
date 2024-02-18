@@ -1,6 +1,8 @@
 import buyGamepass from "./api/general/buyGamepass.js";
 import buyMinecraftPremium from "./api/general/buyMinecraftPremium.js";
 import buyRobux from "./api/general/buyRobux.js";
+import cancelPayment from "./api/general/cancelPayment.js";
+import cancelPurchase from "./api/general/cancelPurchase.js";
 import createTSRTransaction from "./api/general/createTSRTransaction.js";
 import createVNBankTransaction from "./api/general/createVNBankTransaction.js";
 import depositPhoneCard from "./api/general/depositPhoneCard.js";
@@ -46,4 +48,4 @@ import admin_updateGamepasses from "./api/admin/admin_updateGamepasses.js";
 import admin_updateMinecraftPremiumRate from "./api/admin/admin_updateMinecraftPremiumRate.js";
 import admin_updateRobuxLimit from "./api/admin/admin_updateRobuxLimit.js";
 import admin_updateRobuxRate from "./api/admin/admin_updateRobuxRate.js";
-export { buyGamepass, buyMinecraftPremium, buyRobux, createTSRTransaction, createVNBankTransaction, depositPhoneCard, generateOldLoginClaim, getEmails, getGamepassCreationLink, getGamepasses, getLatestPurchases, getMinecraftPremiumRate, getPayments, getPrivacySetting, getPurchases, getRobuxLimit, getRobuxRate, getTopDeposit, getUserInfo, getVNBanks, getVNPhoneCardDisplayName, getVNPhoneCardFee, getTransactions, login, logout, robuxAutoAvailable, setPrivacySetting, switchToken, admin_addRobloxAccount, admin_changePurchaseNote, admin_changePurchaseNoteInternal, admin_changePurchaseStatus, admin_changeUserPermission, admin_checkRobuxAmountViolation, admin_checkRobuxAmountViolationPurchase, admin_createTransaction, admin_getGamepassPendingReferences, admin_getPurchase, admin_getPurchases, admin_getRobloxAccounts, admin_getRobuxRequired, admin_getUser, admin_getUserList, admin_removeRobloxAccount, admin_updateGamepasses, admin_updateMinecraftPremiumRate, admin_updateRobuxLimit, admin_updateRobuxRate };
+export { buyGamepass, buyMinecraftPremium, buyRobux, cancelPayment, cancelPurchase, createTSRTransaction, createVNBankTransaction, depositPhoneCard, generateOldLoginClaim, getEmails, getGamepassCreationLink, getGamepasses, getLatestPurchases, getMinecraftPremiumRate, getPayments, getPrivacySetting, getPurchases, getRobuxLimit, getRobuxRate, getTopDeposit, getUserInfo, getVNBanks, getVNPhoneCardDisplayName, getVNPhoneCardFee, getTransactions, login, logout, robuxAutoAvailable, setPrivacySetting, switchToken, admin_addRobloxAccount, admin_changePurchaseNote, admin_changePurchaseNoteInternal, admin_changePurchaseStatus, admin_changeUserPermission, admin_checkRobuxAmountViolation, admin_checkRobuxAmountViolationPurchase, admin_createTransaction, admin_getGamepassPendingReferences, admin_getPurchase, admin_getPurchases, admin_getRobloxAccounts, admin_getRobuxRequired, admin_getUser, admin_getUserList, admin_removeRobloxAccount, admin_updateGamepasses, admin_updateMinecraftPremiumRate, admin_updateRobuxLimit, admin_updateRobuxRate };
