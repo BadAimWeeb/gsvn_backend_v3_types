@@ -3,6 +3,7 @@
 declare const func: import("@badaimweeb/js-dtsocket").Procedure<{
     amount: number;
     taxed: boolean;
+    voucher?: string | null | undefined;
 } & ({
     targetUsername: string;
 } | {

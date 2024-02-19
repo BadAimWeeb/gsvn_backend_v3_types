@@ -4,6 +4,8 @@ declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, import("mo
     pcid: number;
     target: string;
     value: number;
+    originalValue?: number | undefined;
+    voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
     note?: string | undefined;
     internalNote?: string | undefined;

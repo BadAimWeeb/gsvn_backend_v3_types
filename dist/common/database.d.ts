@@ -13,6 +13,7 @@ export declare const DBUsers: Collection<{
      * 2: fe test
      */
     permission: number;
+    voucherUsed?: string[] | undefined;
     privacy: {
         usernamePublic: boolean;
     };
@@ -190,6 +191,8 @@ export declare const DBPurchases: Collection<{
     pcid: number;
     target: string;
     value: number;
+    originalValue?: number | undefined;
+    voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
     note?: string | undefined;
     internalNote?: string | undefined;
@@ -242,6 +245,31 @@ export declare const DBRobloxAccounts: Collection<{
     note: string;
     createdAt: number;
     updatedAt: number;
+}>;
+export declare const DBVouchers: Collection<{
+    code: string;
+    data: {
+        for: "robux" | "roblox-gamepass" | "minecraft" | "*";
+        discount: number;
+        discountType: "percent" | "fixed";
+        discountMax?: number;
+        condition: ({
+            type: "minAmount";
+            minAmount: number;
+        } | {
+            type: "maxAmount";
+            maxAmount: number;
+        })[];
+    };
+    amount: number;
+    amountLeft: number;
+    expires: number;
+}>;
+export declare const DBAPIWaitlist: Collection<{
+    accountUUID: string;
+    website: string;
+    siteBackendLanguage: string;
+    note: string;
 }>;
 /**
  * For migration purposes only. This database is not used actively.
