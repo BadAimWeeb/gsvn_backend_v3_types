@@ -26,6 +26,7 @@
     "@badaimweeb/js-protov2d": "^1.0.12",
     "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#af44bce489fe6a294623430bbd58a5f3a0fafc83",
     "bcrypt": "^5.1.1",
+    "discord.js": "^14.14.1",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongodb": "^6.3.0",

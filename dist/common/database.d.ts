@@ -66,6 +66,7 @@ export type ConfigType = {
         };
     };
     minecraftPremiumRate: number;
+    discordWebhook: string;
     cacheTopDeposit: {
         updatedAt: number;
         data: {
