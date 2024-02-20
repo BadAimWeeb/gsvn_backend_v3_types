@@ -21,7 +21,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@badaimweeb/id-system-backend": "git+https://git.badaimweeb.me/BadAimWeeb/id-system-backend-types#03999da3f9901aef70129e15f7d7b062285a5356",
+    "@badaimweeb/id-system-backend": "git+https://github.com/BadAimWeeb/id-system-backend-types#97a4964aa1febe4bb7599372435c13076e1975ac",
     "@badaimweeb/js-dtsocket": "^0.7.1",
     "@badaimweeb/js-protov2d": "^1.0.12",
     "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#af44bce489fe6a294623430bbd58a5f3a0fafc83",
