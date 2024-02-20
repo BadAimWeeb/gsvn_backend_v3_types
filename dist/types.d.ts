@@ -9,6 +9,8 @@ export type GlobalState = {
 };
 export type LocalState = {
     sessionToken?: string;
+    uuid?: string;
+    username?: string;
 };
 export type EventTable = {
     csEvents: {};
@@ -42,5 +44,6 @@ export declare enum ErrorCode {
     ALREADY_PURCHASED_GAMEPASS = "GSVN#9",
     INVALID_STATUS_CHANGE = "GSVN#10",
     INVALID_STATE = "GSVN#11",
-    ALREADY_USED_VOUCHER = "GSVN#12"
+    ALREADY_USED_VOUCHER = "GSVN#12",
+    ALREADY_EXISTS = "GSVN#13"
 }
