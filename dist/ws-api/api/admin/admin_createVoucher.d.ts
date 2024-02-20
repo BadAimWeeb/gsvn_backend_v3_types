@@ -3,9 +3,9 @@
 declare const func: import("@badaimweeb/js-dtsocket").Procedure<{
     code: string;
     data: {
-        for: "robux";
+        for: ("robux" | "roblox-gamepass" | "minecraft" | "*")[];
         discount: number;
-        discountType: "percent";
+        discountType: "fixed" | "percent";
         condition: ({
             minAmount: number;
             type: "minAmount";

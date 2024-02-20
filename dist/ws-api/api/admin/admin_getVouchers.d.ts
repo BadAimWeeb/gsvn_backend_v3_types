@@ -3,7 +3,7 @@
 declare const func: import("@badaimweeb/js-dtsocket").Procedure<void, import("mongodb").WithId<{
     code: string;
     data: {
-        for: "robux" | "roblox-gamepass" | "minecraft" | "*";
+        for: ("robux" | "roblox-gamepass" | "minecraft" | "*")[];
         discount: number;
         discountType: "fixed" | "percent";
         discountMax?: number | undefined;

@@ -249,7 +249,7 @@ export declare const DBRobloxAccounts: Collection<{
 export declare const DBVouchers: Collection<{
     code: string;
     data: {
-        for: "robux" | "roblox-gamepass" | "minecraft" | "*";
+        for: ("robux" | "roblox-gamepass" | "minecraft" | "*")[];
         discount: number;
         discountType: "percent" | "fixed";
         discountMax?: number;
