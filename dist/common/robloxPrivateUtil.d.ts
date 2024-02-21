@@ -8,7 +8,7 @@ export declare function getUserInfo(jar: CookieJar): Promise<{
     userID: number;
 }>;
 export declare function getRobux(userID: number, jar: CookieJar): Promise<number>;
-export declare function buyGamepass(csrf: string, sellerID: number, gamepassID: number, price: number, jar: CookieJar): Promise<boolean>;
+export declare function buyGamepass(csrf: string, sellerID: number, productID: number, price: number, jar: CookieJar): Promise<boolean>;
 export declare function deleteGamepass(csrf: string, gamepassID: number, jar: CookieJar): Promise<boolean>;
 export declare function buySVV(csrf: string, gameID: number, price: number, jar: CookieJar): Promise<number | undefined>;
 export declare function cancelSVV(csrf: string, serverID: number, price: number, jar: CookieJar): Promise<boolean>;
