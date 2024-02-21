@@ -11,6 +11,7 @@ export declare const DBUsers: Collection<{
      * 0: normal user
      * 1: admin
      * 2: fe test
+     * 3: api
      */
     permission: number;
     voucherUsed?: string[] | undefined;
