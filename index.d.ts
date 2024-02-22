@@ -182,6 +182,7 @@ declare const func$P: _badaimweeb_js_dtsocket.Procedure<void, {
             asset: number;
             rarity: number;
         }[];
+        color: number;
     }[];
 }, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
