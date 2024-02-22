@@ -66,7 +66,7 @@ declare enum ErrorCode {
     PHONE_NOT_VERIFIED = "GSVN#19"
 }
 
-declare const func$Z: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$_: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     game: string;
     passes: string[];
@@ -76,7 +76,7 @@ declare const func$Z: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$Y: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$Z: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     password: string;
     twoFactor: string;
@@ -86,7 +86,7 @@ declare const func$Y: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$X: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$Y: _badaimweeb_js_dtsocket.Procedure<{
     amount: number;
     taxed: boolean;
     voucher?: string | null | undefined;
@@ -98,15 +98,15 @@ declare const func$X: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
+declare const func$X: _badaimweeb_js_dtsocket.Procedure<number, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+    req: http.IncomingMessage;
+}>>>;
+
 declare const func$W: _badaimweeb_js_dtsocket.Procedure<number, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$V: _badaimweeb_js_dtsocket.Procedure<number, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
-    req: http.IncomingMessage;
-}>>>;
-
-declare const func$U: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$V: _badaimweeb_js_dtsocket.Procedure<{
     code: string;
     type: string;
     currentValue: number;
@@ -114,7 +114,7 @@ declare const func$U: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$T: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$U: _badaimweeb_js_dtsocket.Procedure<{
     amount: number;
 }, [pmid: number, instruction: {
     account: string;
@@ -126,7 +126,7 @@ declare const func$T: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$S: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$T: _badaimweeb_js_dtsocket.Procedure<{
     amount: number;
     resolver: string;
 }, [pmid: number, instruction: {
@@ -142,7 +142,7 @@ declare const func$S: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$R: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$S: _badaimweeb_js_dtsocket.Procedure<{
     value: number;
     code: string;
     telco: string;
@@ -151,14 +151,14 @@ declare const func$R: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$Q: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$R: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     password: string;
 }, string, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$P: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$Q: _badaimweeb_js_dtsocket.Procedure<void, {
     address: string;
     isVerified: boolean;
     isPublic: boolean;
@@ -166,7 +166,7 @@ declare const func$P: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$O: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$P: _badaimweeb_js_dtsocket.Procedure<void, {
     assets: string[];
     cases: {
         id: number;
@@ -181,6 +181,21 @@ declare const func$O: _badaimweeb_js_dtsocket.Procedure<void, {
         }[];
     }[];
 }, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+    req: http.IncomingMessage;
+}>>>;
+
+declare const func$O: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
+    gcid: number;
+    target: string;
+    case: number;
+    caseName: string;
+    value: number;
+    action: {
+        type: "robux";
+        amount: number;
+    };
+    createdAt: number;
+}>, "target" | "value" | "createdAt" | "gcid" | "case" | "caseName" | "action">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -1120,7 +1135,7 @@ declare const func: _badaimweeb_js_dtsocket.Procedure<{
 }>>>;
 
 declare namespace WSAPI {
-  export { func$q as admin_activeConnections, func$p as admin_addRobloxAccount, func$o as admin_changePurchaseNote, func$n as admin_changePurchaseNoteInternal, func$m as admin_changePurchaseStatus, func$l as admin_changeUserPermission, func$k as admin_checkRobuxAmountViolation, func$j as admin_checkRobuxAmountViolationPurchase, func$i as admin_createTransaction, func$h as admin_createVoucher, func$g as admin_getGamepassPendingReferences, func$f as admin_getLatestPurchase, func$e as admin_getPurchase, func$d as admin_getPurchases, func$c as admin_getRobloxAccounts, func$b as admin_getRobuxRequired, func$a as admin_getTodayPurchases, func$9 as admin_getUser, func$8 as admin_getUserList, func$7 as admin_getVouchers, func$6 as admin_removeRobloxAccount, func$5 as admin_removeVoucher, func$4 as admin_updateGamepasses, func$3 as admin_updateMinecraftPremiumRate, func$2 as admin_updateRobuxLimit, func$1 as admin_updateRobuxRate, func as api_registerWaitlist, func$Z as buyGamepass, func$Y as buyMinecraftPremium, func$X as buyRobux, func$W as cancelPayment, func$V as cancelPurchase, func$U as checkVoucher, func$T as createTSRTransaction, func$S as createVNBankTransaction, func$R as depositPhoneCard, func$Q as generateOldLoginClaim, func$P as getEmails, func$O as getGachaCases, func$N as getGamepassCreationLink, func$M as getGamepasses, func$L as getLatestPurchases, func$K as getMinecraftPremiumRate, func$J as getPayments, func$I as getPrivacySetting, func$H as getPurchases, func$G as getRobuxLimit, func$F as getRobuxRate, func$E as getRobuxRateBuyback, func$D as getTopDeposit, func$C as getTransactions, func$B as getUserInfo, func$A as getVNBanks, func$z as getVNPhoneCardDisplayName, func$y as getVNPhoneCardFee, func$x as login, func$w as logout, func$v as openGachaCase, func$u as robuxAutoAvailable, func$t as sellRobuxBuyback, func$s as setPrivacySetting, func$r as switchToken };
+  export { func$q as admin_activeConnections, func$p as admin_addRobloxAccount, func$o as admin_changePurchaseNote, func$n as admin_changePurchaseNoteInternal, func$m as admin_changePurchaseStatus, func$l as admin_changeUserPermission, func$k as admin_checkRobuxAmountViolation, func$j as admin_checkRobuxAmountViolationPurchase, func$i as admin_createTransaction, func$h as admin_createVoucher, func$g as admin_getGamepassPendingReferences, func$f as admin_getLatestPurchase, func$e as admin_getPurchase, func$d as admin_getPurchases, func$c as admin_getRobloxAccounts, func$b as admin_getRobuxRequired, func$a as admin_getTodayPurchases, func$9 as admin_getUser, func$8 as admin_getUserList, func$7 as admin_getVouchers, func$6 as admin_removeRobloxAccount, func$5 as admin_removeVoucher, func$4 as admin_updateGamepasses, func$3 as admin_updateMinecraftPremiumRate, func$2 as admin_updateRobuxLimit, func$1 as admin_updateRobuxRate, func as api_registerWaitlist, func$_ as buyGamepass, func$Z as buyMinecraftPremium, func$Y as buyRobux, func$X as cancelPayment, func$W as cancelPurchase, func$V as checkVoucher, func$U as createTSRTransaction, func$T as createVNBankTransaction, func$S as depositPhoneCard, func$R as generateOldLoginClaim, func$Q as getEmails, func$P as getGachaCases, func$O as getGachaHistory, func$N as getGamepassCreationLink, func$M as getGamepasses, func$L as getLatestPurchases, func$K as getMinecraftPremiumRate, func$J as getPayments, func$I as getPrivacySetting, func$H as getPurchases, func$G as getRobuxLimit, func$F as getRobuxRate, func$E as getRobuxRateBuyback, func$D as getTopDeposit, func$C as getTransactions, func$B as getUserInfo, func$A as getVNBanks, func$z as getVNPhoneCardDisplayName, func$y as getVNPhoneCardFee, func$x as login, func$w as logout, func$v as openGachaCase, func$u as robuxAutoAvailable, func$t as sellRobuxBuyback, func$s as setPrivacySetting, func$r as switchToken };
 }
 
 declare const apiServer: DTSocketServer<ServerContext<GlobalState, LocalState, EventTable, Session<any>, typeof WSAPI>>;
