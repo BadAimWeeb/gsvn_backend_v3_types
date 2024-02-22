@@ -72,6 +72,7 @@ declare const func$_: _badaimweeb_js_dtsocket.Procedure<{
     passes: string[];
     password: string;
     voucher?: string | null | undefined;
+    note?: string | null | undefined;
 }, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -82,6 +83,7 @@ declare const func$Z: _badaimweeb_js_dtsocket.Procedure<{
     twoFactor: string;
     mcNameNote: string;
     voucher?: string | null | undefined;
+    userNote?: string | null | undefined;
 }, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -90,6 +92,7 @@ declare const func$Y: _badaimweeb_js_dtsocket.Procedure<{
     amount: number;
     taxed: boolean;
     voucher?: string | null | undefined;
+    note?: string | null | undefined;
 } & ({
     targetUsername: string;
 } | {
@@ -333,6 +336,7 @@ declare const func$H: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     originalValue?: number | undefined;
     voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
+    userNote?: string | undefined;
     note?: string | undefined;
     internalNote?: string | undefined;
     createdAt: number;
@@ -379,7 +383,7 @@ declare const func$H: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
         mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
-})>, "value" | "pcid" | "createdAt" | "data" | "status" | "updatedAt" | "type" | "note" | "partialProcessedData">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+})>, "value" | "pcid" | "createdAt" | "data" | "status" | "updatedAt" | "type" | "note" | "userNote" | "partialProcessedData">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -544,6 +548,7 @@ declare const func$o: _badaimweeb_js_dtsocket.Procedure<{
     originalValue?: number | undefined;
     voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
+    userNote?: string | undefined;
     note?: string | undefined;
     internalNote?: string | undefined;
     createdAt: number;
@@ -604,6 +609,7 @@ declare const func$n: _badaimweeb_js_dtsocket.Procedure<{
     originalValue?: number | undefined;
     voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
+    userNote?: string | undefined;
     note?: string | undefined;
     internalNote?: string | undefined;
     createdAt: number;
@@ -664,6 +670,7 @@ declare const func$m: _badaimweeb_js_dtsocket.Procedure<{
     originalValue?: number | undefined;
     voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
+    userNote?: string | undefined;
     note?: string | undefined;
     internalNote?: string | undefined;
     createdAt: number;
@@ -802,6 +809,7 @@ declare const func$f: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
     originalValue?: number | undefined;
     voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
+    userNote?: string | undefined;
     note?: string | undefined;
     internalNote?: string | undefined;
     createdAt: number;
@@ -859,6 +867,7 @@ declare const func$e: _badaimweeb_js_dtsocket.Procedure<number, mongodb.WithId<{
     originalValue?: number | undefined;
     voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
+    userNote?: string | undefined;
     note?: string | undefined;
     internalNote?: string | undefined;
     createdAt: number;
@@ -916,6 +925,7 @@ declare const func$d: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
     originalValue?: number | undefined;
     voucher?: string | undefined;
     status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
+    userNote?: string | undefined;
     note?: string | undefined;
     internalNote?: string | undefined;
     createdAt: number;
@@ -994,6 +1004,7 @@ declare const func$a: _badaimweeb_js_dtsocket.Procedure<void, {
         originalValue?: number | undefined;
         voucher?: string | undefined;
         status: "pending" | "processing" | "done" | "cancelled" | "partial-processed";
+        userNote?: string | undefined;
         note?: string | undefined;
         internalNote?: string | undefined;
         createdAt: number;
