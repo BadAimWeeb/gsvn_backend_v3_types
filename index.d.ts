@@ -1116,7 +1116,7 @@ declare const func$9: _badaimweeb_js_dtsocket.Procedure<string, {
     nameOrder: "first-last" | "last-first";
     permission: number;
     balance: number;
-    balanceRobux: number | undefined;
+    balanceRobux: number;
     createdAt: number;
 }, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
@@ -1127,7 +1127,7 @@ declare const func$8: _badaimweeb_js_dtsocket.Procedure<void, {
     username: string;
     permission: number;
     balance: number;
-    balanceRobux: number | undefined;
+    balanceRobux: number;
     createdAt: number;
 }[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
