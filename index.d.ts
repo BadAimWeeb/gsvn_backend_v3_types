@@ -52,7 +52,7 @@ type EventTable = {
         } | {
             type: "minecraft";
         }) => void;
-        newGacha: (gcid: string, username: string, caseName: string, rarity: number, result: string, timestamp: number) => void;
+        newGacha: (gcid: number, username: string, caseName: string, rarity: number, result: string, timestamp: number) => void;
     };
 };
 declare enum ErrorCode {
