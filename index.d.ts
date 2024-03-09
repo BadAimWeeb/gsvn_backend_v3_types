@@ -51,6 +51,9 @@ type EventTable = {
             passes: string[];
         } | {
             type: "minecraft";
+        } | {
+            type: "blox-fruit-hire";
+            hireTypes: string[];
         }) => void;
         newGacha: (gcid: number, username: string, caseName: string, rarity: number, result: string, timestamp: number) => void;
     };
@@ -123,8 +126,8 @@ declare const func$$: _badaimweeb_js_dtsocket.Procedure<number, void, _badaimwee
 }>>>;
 
 declare const func$_: _badaimweeb_js_dtsocket.Procedure<{
-    code: string;
     type: string;
+    code: string;
     currentValue: number;
 }, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
@@ -268,6 +271,9 @@ declare const func$O: _badaimweeb_js_dtsocket.Procedure<void, {
         passes: string[];
     } | {
         type: "minecraft";
+    } | {
+        type: "blox-fruit-hire";
+        hireTypes: string[];
     };
 }[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
@@ -351,7 +357,7 @@ declare const func$M: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
         date: Date;
         message: string;
     } | undefined;
-})>, "pmid" | "remotePMID" | "createdAt" | "amount" | "status" | "reason" | "input" | "instruction" | "output" | "updatedAt" | "type">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+})>, "pmid" | "remotePMID" | "createdAt" | "type" | "amount" | "status" | "reason" | "input" | "instruction" | "output" | "updatedAt">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -419,7 +425,19 @@ declare const func$J: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
         mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
-})>, "value" | "pcid" | "createdAt" | "data" | "status" | "updatedAt" | "type" | "note" | "userNote" | "partialProcessedData">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+} | {
+    type: "blox-fruit-hire";
+    data: {
+        username: string;
+        password: string;
+        cachedDisplayNames: Record<string, string>;
+        types: string[];
+        refundValue: Record<string, number>;
+    };
+    partialProcessedData?: {
+        typeProcessed: string[];
+    } | undefined;
+})>, "value" | "pcid" | "createdAt" | "type" | "data" | "status" | "updatedAt" | "note" | "userNote" | "partialProcessedData">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -641,6 +659,18 @@ declare const func$p: _badaimweeb_js_dtsocket.Procedure<{
         mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
+} | {
+    type: "blox-fruit-hire";
+    data: {
+        username: string;
+        password: string;
+        cachedDisplayNames: Record<string, string>;
+        types: string[];
+        refundValue: Record<string, number>;
+    };
+    partialProcessedData?: {
+        typeProcessed: string[];
+    } | undefined;
 })> | null, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -702,6 +732,18 @@ declare const func$o: _badaimweeb_js_dtsocket.Procedure<{
         mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
+} | {
+    type: "blox-fruit-hire";
+    data: {
+        username: string;
+        password: string;
+        cachedDisplayNames: Record<string, string>;
+        types: string[];
+        refundValue: Record<string, number>;
+    };
+    partialProcessedData?: {
+        typeProcessed: string[];
+    } | undefined;
 })> | null, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -763,6 +805,18 @@ declare const func$n: _badaimweeb_js_dtsocket.Procedure<{
         mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
+} | {
+    type: "blox-fruit-hire";
+    data: {
+        username: string;
+        password: string;
+        cachedDisplayNames: Record<string, string>;
+        types: string[];
+        refundValue: Record<string, number>;
+    };
+    partialProcessedData?: {
+        typeProcessed: string[];
+    } | undefined;
 })> | null, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -801,15 +855,15 @@ declare const func$i: _badaimweeb_js_dtsocket.Procedure<{
 declare const func$h: _badaimweeb_js_dtsocket.Procedure<{
     code: string;
     data: {
-        for: ("robux" | "roblox-gamepass" | "minecraft" | "*")[];
+        for: ("robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire" | "*")[];
         discount: number;
         discountType: "fixed" | "percent";
         condition: ({
-            minAmount: number;
             type: "minAmount";
+            minAmount: number;
         } | {
-            maxAmount: number;
             type: "maxAmount";
+            maxAmount: number;
         })[];
         discountMax?: number | undefined;
     };
@@ -826,7 +880,7 @@ declare const func$g: _badaimweeb_js_dtsocket.Procedure<number, {
     note: string | undefined;
     createdAt: number;
     updatedAt: number;
-    type: "robux" | "roblox-gamepass" | "minecraft";
+    type: "robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire";
     data: {
         game: string;
         passes: string[];
@@ -847,6 +901,8 @@ declare const func$g: _badaimweeb_js_dtsocket.Procedure<number, {
     };
     partialProcessedData: {
         passesProcessed: string[];
+    } | {
+        typeProcessed: string[];
     } | null | undefined;
 }[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
@@ -906,6 +962,18 @@ declare const func$f: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
         mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
+} | {
+    type: "blox-fruit-hire";
+    data: {
+        username: string;
+        password: string;
+        cachedDisplayNames: Record<string, string>;
+        types: string[];
+        refundValue: Record<string, number>;
+    };
+    partialProcessedData?: {
+        typeProcessed: string[];
+    } | undefined;
 })>, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -964,6 +1032,18 @@ declare const func$e: _badaimweeb_js_dtsocket.Procedure<number, mongodb.WithId<{
         mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
+} | {
+    type: "blox-fruit-hire";
+    data: {
+        username: string;
+        password: string;
+        cachedDisplayNames: Record<string, string>;
+        types: string[];
+        refundValue: Record<string, number>;
+    };
+    partialProcessedData?: {
+        typeProcessed: string[];
+    } | undefined;
 })> | null, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1022,6 +1102,18 @@ declare const func$d: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
         mcNameNote: string;
     };
     partialProcessedData?: null | undefined;
+} | {
+    type: "blox-fruit-hire";
+    data: {
+        username: string;
+        password: string;
+        cachedDisplayNames: Record<string, string>;
+        types: string[];
+        refundValue: Record<string, number>;
+    };
+    partialProcessedData?: {
+        typeProcessed: string[];
+    } | undefined;
 })>[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1101,6 +1193,18 @@ declare const func$a: _badaimweeb_js_dtsocket.Procedure<void, {
             mcNameNote: string;
         };
         partialProcessedData?: null | undefined;
+    } | {
+        type: "blox-fruit-hire";
+        data: {
+            username: string;
+            password: string;
+            cachedDisplayNames: Record<string, string>;
+            types: string[];
+            refundValue: Record<string, number>;
+        };
+        partialProcessedData?: {
+            typeProcessed: string[];
+        } | undefined;
     })>[];
     day: number;
     month: number;
@@ -1136,7 +1240,7 @@ declare const func$8: _badaimweeb_js_dtsocket.Procedure<void, {
 declare const func$7: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
     code: string;
     data: {
-        for: ("robux" | "roblox-gamepass" | "minecraft" | "*")[];
+        for: ("robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire" | "*")[];
         discount: number;
         discountType: "fixed" | "percent";
         discountMax?: number | undefined;
