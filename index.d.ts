@@ -244,6 +244,7 @@ declare const func$T: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     rarity: number;
     winningItem: string;
     createdAt: number;
+    isFree?: boolean | undefined;
 }>, "target" | "value" | "createdAt" | "gcid" | "case" | "caseName" | "action" | "rarity" | "winningItem">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
