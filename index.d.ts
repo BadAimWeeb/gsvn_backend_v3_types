@@ -194,6 +194,7 @@ declare const func$Z: _badaimweeb_js_dtsocket.Procedure<void, {
         types: {
             [type: string]: {
                 displayName: string;
+                shortDisplayName?: string | null | undefined;
                 price: number;
             };
         };
@@ -1322,6 +1323,7 @@ declare const func$5: _badaimweeb_js_dtsocket.Procedure<Record<string, {
     types: Record<string, {
         displayName: string;
         price: number;
+        shortDisplayName?: string | null | undefined;
     }>;
 }>, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
