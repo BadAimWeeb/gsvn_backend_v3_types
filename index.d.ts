@@ -137,6 +137,7 @@ declare const func$12: _badaimweeb_js_dtsocket.Procedure<{
     type: string[];
     username: string;
     password: string;
+    group: string;
     voucher?: string | null | undefined;
     userNote?: string | null | undefined;
 }, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
@@ -188,9 +189,14 @@ declare const func$_: _badaimweeb_js_dtsocket.Procedure<{
 }>>>;
 
 declare const func$Z: _badaimweeb_js_dtsocket.Procedure<void, {
-    [type: string]: {
+    [groupID: string]: {
         displayName: string;
-        price: number;
+        types: {
+            [type: string]: {
+                displayName: string;
+                price: number;
+            };
+        };
     };
 }, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
@@ -459,6 +465,8 @@ declare const func$K: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
         username: string;
         password: string;
         cachedDisplayNames: Record<string, string>;
+        group: string;
+        groupCachedDisplayName: string;
         types: string[];
         refundValue: Record<string, number>;
     };
@@ -693,6 +701,8 @@ declare const func$q: _badaimweeb_js_dtsocket.Procedure<{
         username: string;
         password: string;
         cachedDisplayNames: Record<string, string>;
+        group: string;
+        groupCachedDisplayName: string;
         types: string[];
         refundValue: Record<string, number>;
     };
@@ -766,6 +776,8 @@ declare const func$p: _badaimweeb_js_dtsocket.Procedure<{
         username: string;
         password: string;
         cachedDisplayNames: Record<string, string>;
+        group: string;
+        groupCachedDisplayName: string;
         types: string[];
         refundValue: Record<string, number>;
     };
@@ -839,6 +851,8 @@ declare const func$o: _badaimweeb_js_dtsocket.Procedure<{
         username: string;
         password: string;
         cachedDisplayNames: Record<string, string>;
+        group: string;
+        groupCachedDisplayName: string;
         types: string[];
         refundValue: Record<string, number>;
     };
@@ -996,6 +1010,8 @@ declare const func$g: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
         username: string;
         password: string;
         cachedDisplayNames: Record<string, string>;
+        group: string;
+        groupCachedDisplayName: string;
         types: string[];
         refundValue: Record<string, number>;
     };
@@ -1066,6 +1082,8 @@ declare const func$f: _badaimweeb_js_dtsocket.Procedure<number, mongodb.WithId<{
         username: string;
         password: string;
         cachedDisplayNames: Record<string, string>;
+        group: string;
+        groupCachedDisplayName: string;
         types: string[];
         refundValue: Record<string, number>;
     };
@@ -1136,6 +1154,8 @@ declare const func$e: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
         username: string;
         password: string;
         cachedDisplayNames: Record<string, string>;
+        group: string;
+        groupCachedDisplayName: string;
         types: string[];
         refundValue: Record<string, number>;
     };
@@ -1227,6 +1247,8 @@ declare const func$b: _badaimweeb_js_dtsocket.Procedure<void, {
             username: string;
             password: string;
             cachedDisplayNames: Record<string, string>;
+            group: string;
+            groupCachedDisplayName: string;
             types: string[];
             refundValue: Record<string, number>;
         };
@@ -1297,7 +1319,10 @@ declare const func$6: _badaimweeb_js_dtsocket.Procedure<string, boolean, _badaim
 
 declare const func$5: _badaimweeb_js_dtsocket.Procedure<Record<string, {
     displayName: string;
-    price: number;
+    types: Record<string, {
+        displayName: string;
+        price: number;
+    }>;
 }>, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
