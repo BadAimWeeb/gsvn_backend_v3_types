@@ -117,6 +117,18 @@ type GlobalState = {
             };
         };
     };
+    cacheLatestGachaFeed?: {
+        lastCached: number;
+        feed: {
+            gcid: number;
+            username: string;
+            rarity: number;
+            case: string;
+            caseID: number;
+            result: string;
+            timestamp: number;
+        }[];
+    };
 };
 type LocalState = {
     sessionToken?: string;
