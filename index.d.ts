@@ -7,16 +7,49 @@ import { DTSocketServer, ServerContext } from '@badaimweeb/js-dtsocket';
 import * as http from 'http';
 import * as ws from 'ws';
 import * as mongodb from 'mongodb';
+import { Collection, WithId } from 'mongodb';
 import * as ip_address from 'ip-address';
 
+type DatabaseReturnType<T extends Collection<any>> = T extends Collection<infer U> ? WithId<U> : never;
+declare const DBGachaCases: Collection<{
+    caseID: number;
+    price: number;
+    type: string;
+    name: string;
+    contains: {
+        name: string;
+        asset: number;
+        rarity: number;
+    }[];
+    caseImageAsset: number;
+    color: number;
+    assets: string[];
+} & {
+    algorithm: "123";
+    algorithmData: {
+        robux: number;
+        rarity: number;
+    }[];
+}>;
+
 type GlobalState = {
-    robuxRate?: number;
     lockTopDepositCalc?: Promise<void>;
     migrationClaim: Map<string, {
         expires: number;
         username: string;
     }>;
     lockMigrationClaim: Set<string>;
+    cacheRobuxRate?: {
+        lastCached: number;
+        rate: number;
+    };
+    cacheRobuxLimit?: {
+        lastCached: number;
+        limit: {
+            low: [number, boolean];
+            high: [number, boolean];
+        };
+    };
     cacheUsersCount?: {
         lastCached: number;
         count: number;
@@ -28,6 +61,61 @@ type GlobalState = {
     cachePurchaseCount?: {
         lastCached: number;
         count: number;
+    };
+    cacheGachaCases?: {
+        lastCached: number;
+        data: DatabaseReturnType<typeof DBGachaCases>[];
+    };
+    cacheMinecraftRate?: {
+        lastCached: number;
+        rate: number;
+    };
+    cacheGamepasses?: {
+        lastCached: number;
+        data: {
+            [game: string]: {
+                displayName: string;
+                passes: {
+                    [pass: string]: {
+                        displayName: string;
+                        price: number;
+                        color?: string;
+                    };
+                };
+            };
+        };
+    };
+    cacheBloxFruitHire?: {
+        lastCached: number;
+        data: {
+            [groupID: string]: {
+                displayName: string;
+                types: {
+                    [type: string]: {
+                        displayName: string;
+                        shortDisplayName?: string | null;
+                        price: number;
+                    };
+                };
+            };
+        };
+    };
+    cachePhoneCardsFee?: {
+        lastCached: number;
+        feeTable: {
+            [telcoCodename: string]: {
+                displayName: string;
+                fees: {
+                    [value: string]: number;
+                };
+                resolver?: {
+                    [value: string]: {
+                        uuid: string;
+                        name: string;
+                    };
+                };
+            };
+        };
     };
 };
 type LocalState = {
@@ -227,13 +315,13 @@ declare const func$U: _badaimweeb_js_dtsocket.Procedure<void, {
     assets: string[];
     cases: {
         id: number;
-        asset: number;
+        asset: number | undefined;
         type: string;
         name: string;
         price: number;
         contains: {
             name: string;
-            asset: number;
+            asset: number | undefined;
             rarity: number;
         }[];
         color: number;
@@ -256,7 +344,7 @@ declare const func$T: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     winningItem: string;
     createdAt: number;
     isFree?: boolean | undefined;
-}>, "target" | "value" | "createdAt" | "gcid" | "case" | "caseName" | "action" | "rarity" | "winningItem">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+}>, "target" | "value" | "createdAt" | "gcid" | "rarity" | "case" | "caseName" | "action" | "winningItem">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -1321,8 +1409,8 @@ declare const func$6: _badaimweeb_js_dtsocket.Procedure<string, boolean, _badaim
 declare const func$5: _badaimweeb_js_dtsocket.Procedure<Record<string, {
     displayName: string;
     types: Record<string, {
-        displayName: string;
         price: number;
+        displayName: string;
         shortDisplayName?: string | null | undefined;
     }>;
 }>, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
@@ -1331,8 +1419,8 @@ declare const func$5: _badaimweeb_js_dtsocket.Procedure<Record<string, {
 
 declare const func$4: _badaimweeb_js_dtsocket.Procedure<Record<string, {
     passes: Record<string, {
-        displayName: string;
         price: number;
+        displayName: string;
         color?: string | undefined;
     }>;
     displayName: string;
