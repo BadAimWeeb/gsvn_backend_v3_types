@@ -657,7 +657,7 @@ declare const func$K: _badaimweeb_js_dtsocket.Procedure<void, {
     lastMonth: number;
     currentYear: number;
     lastYear: number;
-    data: (string | number)[][];
+    data: [username: string, total: number, currentMonth: number, lastMonth: number][];
 }, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
