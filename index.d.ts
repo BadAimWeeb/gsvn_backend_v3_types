@@ -637,7 +637,7 @@ declare const func$L: _badaimweeb_js_dtsocket.Procedure<boolean | void, {
                 price: number;
                 approxVND: number;
                 stock: number;
-                note?: string | undefined;
+                note: string | null;
             };
         };
     };
@@ -1647,9 +1647,9 @@ declare const func$1: _badaimweeb_js_dtsocket.Procedure<Record<string, {
     availables: Record<string, {
         price: number;
         approxVND: number;
-        note?: string | undefined;
+        note?: string | null | undefined;
     }>;
-    note?: string | undefined;
+    note?: string | null | undefined;
 }>, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
