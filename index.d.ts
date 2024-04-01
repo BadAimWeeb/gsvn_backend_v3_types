@@ -34,6 +34,7 @@ declare const DBGachaCases: Collection<{
 
 type GlobalState = {
     lockTopDepositCalc?: Promise<void>;
+    lockTopDepositCalcFull?: Promise<void>;
     migrationClaim: Map<string, {
         expires: number;
         username: string;
@@ -645,14 +646,14 @@ declare const func$M: _badaimweeb_js_dtsocket.Procedure<boolean | void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$L: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$L: _badaimweeb_js_dtsocket.Procedure<void, readonly [{
     username: string;
     amount: number;
-}[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+}[], number, number], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$K: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$K: _badaimweeb_js_dtsocket.Procedure<boolean | void | null | undefined, {
     currentMonth: number;
     lastMonth: number;
     currentYear: number;
