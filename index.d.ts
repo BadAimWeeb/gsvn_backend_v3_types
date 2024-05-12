@@ -751,6 +751,7 @@ declare const func$F: _badaimweeb_js_dtsocket.Procedure<void, {
         content: string;
         timestamp: number;
         attachments: string[];
+        messageLink: string;
     }[];
     emojis: {
         [k: string]: string;
