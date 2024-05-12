@@ -744,13 +744,18 @@ declare const func$G: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$F: _badaimweeb_js_dtsocket.Procedure<void, {
-    avatar: string;
-    username: string;
-    content: string;
-    timestamp: number;
-    attachments: string[];
-}[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$F: _badaimweeb_js_dtsocket.Procedure<void, never[] | {
+    messages: {
+        avatar: string;
+        username: string;
+        content: string;
+        timestamp: number;
+        attachments: string[];
+    }[];
+    emojis: {
+        [k: string]: string;
+    };
+}, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
