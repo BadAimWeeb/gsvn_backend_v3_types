@@ -744,7 +744,7 @@ declare const func$G: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$F: _badaimweeb_js_dtsocket.Procedure<void, never[] | {
+declare const func$F: _badaimweeb_js_dtsocket.Procedure<void, {
     messages: {
         avatar: string;
         username: string;
