@@ -528,6 +528,7 @@ declare const func$V: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
 
 declare const func$U: _badaimweeb_js_dtsocket.Procedure<void, {
     usernamePublic: boolean;
+    avatarPublic: boolean;
 }, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -655,10 +656,15 @@ declare const func$O: _badaimweeb_js_dtsocket.Procedure<boolean | void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$N: _badaimweeb_js_dtsocket.Procedure<void, readonly [{
+declare const func$N: _badaimweeb_js_dtsocket.Procedure<void, readonly [({
     username: string;
     amount: number;
-}[], number, number], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+    avatar?: undefined;
+} | {
+    username: string;
+    amount: number;
+    avatar: string | null | undefined;
+})[], number, number], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -707,6 +713,7 @@ declare const func$J: _badaimweeb_js_dtsocket.Procedure<void, {
     permission: number;
     joinedAt: number;
     reseller: boolean;
+    avatar: string | null;
 }, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -797,7 +804,8 @@ declare const func$A: _badaimweeb_js_dtsocket.Procedure<number, number, _badaimw
 }>>>;
 
 declare const func$z: _badaimweeb_js_dtsocket.Procedure<{
-    usernamePublic: boolean;
+    usernamePublic?: boolean | null | undefined;
+    avatarPublic?: boolean | null | undefined;
 }, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
