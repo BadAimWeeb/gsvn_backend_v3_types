@@ -11,8 +11,7 @@ import * as mongodb from 'mongodb';
 import { Collection, WithId } from 'mongodb';
 import * as ip_address from 'ip-address';
 
-type DatabaseReturnType<T extends Collection<any>> = T extends Collection<infer U> ? WithId<U> : never;
-declare const DBGachaCases: Collection<{
+declare const DBGachaCases: mongodb.Collection<{
     caseID: number;
     price: number;
     type: string;
@@ -32,6 +31,8 @@ declare const DBGachaCases: Collection<{
         rarity: number;
     }[];
 }>;
+
+type DatabaseReturnType<T extends Collection<any>> = T extends Collection<infer U> ? WithId<U> : never;
 
 type GlobalState = {
     lockTopDepositCalc?: Promise<void>;
@@ -377,7 +378,7 @@ declare const func$10: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.With
     winningItem: string;
     createdAt: number;
     isFree?: boolean | undefined;
-}>, "target" | "value" | "createdAt" | "gcid" | "rarity" | "case" | "caseName" | "action" | "winningItem">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+}>, "value" | "gcid" | "target" | "rarity" | "createdAt" | "case" | "caseName" | "action" | "winningItem">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -694,7 +695,7 @@ declare const func$L: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     };
     note: string;
     createdAt: number;
-}>, "txid" | "createdAt" | "note" | "oldBalance" | "change" | "newBalance" | "tag" | "extraData">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+}>, "createdAt" | "txid" | "note" | "oldBalance" | "change" | "newBalance" | "tag" | "extraData">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
