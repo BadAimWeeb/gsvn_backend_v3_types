@@ -9,7 +9,6 @@ import * as ws from 'ws';
 import { Message } from 'discord.js';
 import * as mongodb from 'mongodb';
 import { Collection, WithId } from 'mongodb';
-import * as ip_address from 'ip-address';
 
 declare const DBGachaCases: mongodb.Collection<{
     caseID: number;
@@ -310,18 +309,7 @@ declare const func$17: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$16: _badaimweeb_js_dtsocket.Procedure<void, {
-    [groupID: string]: {
-        displayName: string;
-        types: {
-            [type: string]: {
-                displayName: string;
-                shortDisplayName?: string | null | undefined;
-                price: number;
-            };
-        };
-    };
-}, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$16: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -333,7 +321,7 @@ declare const func$14: _badaimweeb_js_dtsocket.Procedure<void, Record<number, nu
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$13: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$13: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -389,18 +377,7 @@ declare const func$$: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$_: _badaimweeb_js_dtsocket.Procedure<void, {
-    [game: string]: {
-        displayName: string;
-        passes: {
-            [pass: string]: {
-                displayName: string;
-                price: number;
-                color?: string | undefined;
-            };
-        };
-    };
-}, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$_: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -408,15 +385,7 @@ declare const func$Z: _badaimweeb_js_dtsocket.Procedure<void, readonly [number, 
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$Y: _badaimweeb_js_dtsocket.Procedure<void, {
-    gcid: number;
-    username: string;
-    rarity: number;
-    case: string;
-    caseID: number;
-    result: string;
-    timestamp: number;
-}[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$Y: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -445,7 +414,7 @@ declare const func$X: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$W: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$W: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -534,7 +503,7 @@ declare const func$U: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$T: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$T: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -626,14 +595,11 @@ declare const func$S: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$R: _badaimweeb_js_dtsocket.Procedure<void, {
-    low: [amount: number, taxed: boolean];
-    high: [amount: number, taxed: boolean];
-}, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$R: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$Q: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$Q: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -699,7 +665,7 @@ declare const func$L: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$K: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$K: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -735,20 +701,7 @@ declare const func$H: _badaimweeb_js_dtsocket.Procedure<void, Record<string, str
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$G: _badaimweeb_js_dtsocket.Procedure<void, {
-    [telcoCodename: string]: {
-        displayName: string;
-        fees: {
-            [value: string]: number;
-        };
-        resolver?: {
-            [value: string]: {
-                uuid: string;
-                name: string;
-            };
-        } | undefined;
-    };
-}, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$G: _badaimweeb_js_dtsocket.Procedure<void, any, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
@@ -816,12 +769,12 @@ declare const func$y: _badaimweeb_js_dtsocket.Procedure<string, void, _badaimwee
 }>>>;
 
 declare const func$x: _badaimweeb_js_dtsocket.Procedure<void, {
-    id: string;
-    ip: ip_address.Address4 | ip_address.Address6 | null | undefined;
+    id: any;
+    ip: any;
     hasToken: boolean;
-    ping: number;
-    accountUsername: string | undefined;
-    accountUUID: string | undefined;
+    ping: any;
+    accountUsername: any;
+    accountUUID: any;
 }[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;

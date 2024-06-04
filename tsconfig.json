@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "module": "esnext",
+        "module": "Node16",
         "target": "es2022",
-        "moduleResolution": "Node",
+        "moduleResolution": "Node16",
         "outDir": "dist",
         "allowSyntheticDefaultImports": true,
         "declaration": true,
