@@ -6,7 +6,6 @@ import * as _badaimweeb_js_dtsocket from '@badaimweeb/js-dtsocket';
 import { ServerContext } from '@badaimweeb/js-dtsocket';
 import * as http from 'http';
 import * as ws from 'ws';
-import { Message } from 'discord.js';
 import * as mongodb from 'mongodb';
 import { Collection, WithId } from 'mongodb';
 import * as ip_address from 'ip-address';
@@ -44,7 +43,14 @@ type GlobalState = {
     lockMigrationClaim: Set<string>;
     cacheVouchMessages?: {
         lastCached: number;
-        messages: Message[];
+        messages: {
+            avatar: string;
+            username: string;
+            content: string;
+            timestamp: number;
+            attachments: string[];
+            messageLink: string;
+        }[];
     };
     cacheRobuxRate?: {
         lastCached: number;
