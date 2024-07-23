@@ -23,10 +23,10 @@
     "typescript": "^5.5.3"
   },
   "dependencies": {
-    "@badaimweeb/id-system-backend": "git+https://github.com/BadAimWeeb/id-system-backend-types#806125dda97c938a215656cb761a51fd8d6e78be",
+    "@badaimweeb/id-system-backend": "git+https://github.com/BadAimWeeb/id-system-backend-types#277d7c0f116a517b2d72cf216fb0f4ac427c3fae",
     "@badaimweeb/js-dtsocket": "^0.8.1",
-    "@badaimweeb/js-protov2d": "^1.0.13",
-    "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#f71e39b69abb511597187301730cd442a09178f7",
+    "@badaimweeb/js-protov2d": "^1.0.14",
+    "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#af5b04c0f123d668da0efa80d8b4dc0e052aa35b",
     "bcrypt": "^5.1.1",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
