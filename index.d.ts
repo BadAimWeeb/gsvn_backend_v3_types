@@ -101,6 +101,7 @@ type GlobalState = {
     cachePS99HugePets?: {
         lastCached: number;
         data: {
+            key: string;
             name: string;
             price: number;
             stock: number;
@@ -552,6 +553,7 @@ declare const func$X: _badaimweeb_js_dtsocket.Procedure<void, {
 }>>>;
 
 declare const func$W: _badaimweeb_js_dtsocket.Procedure<void, {
+    key: string;
     name: string;
     price: number;
     stock: number;
