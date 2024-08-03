@@ -1306,7 +1306,7 @@ declare const func$o: _badaimweeb_js_dtsocket.Procedure<{
     code: string;
     amount: number;
     data: {
-        for: ("robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire" | "steam-wallet" | "*")[];
+        for: ("robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire" | "steam-wallet" | "roblox-ps99-huge" | "*")[];
         discount: number;
         discountType: "fixed" | "percent";
         condition: ({
@@ -1991,7 +1991,7 @@ declare const func$b: _badaimweeb_js_dtsocket.Procedure<void, {
 declare const func$a: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
     code: string;
     data: {
-        for: ("robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire" | "steam-wallet" | "*")[];
+        for: ("robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire" | "steam-wallet" | "roblox-ps99-huge" | "*")[];
         discount: number;
         discountType: "percent" | "fixed";
         discountMax?: number;
