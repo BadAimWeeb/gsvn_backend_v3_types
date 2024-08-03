@@ -184,6 +184,12 @@ type EventTable = {
             region: string;
             value: number;
             amount: number;
+        } | {
+            type: "roblox-ps99-huge";
+            huges: {
+                name: string;
+                count: number;
+            }[];
         }) => void;
         newGacha: (gcid: number, username: string, caseName: string, rarity: number, result: string, timestamp: number) => void;
     };
@@ -212,7 +218,7 @@ declare enum ErrorCode {
     PHONE_NOT_VERIFIED = "GSVN#19"
 }
 
-declare const func$1l: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$1m: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     game: string;
     passes: string[];
@@ -223,13 +229,27 @@ declare const func$1l: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$1k: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$1l: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     password: string;
     twoFactor: string;
     mcNameNote: string;
     voucher?: string | null | undefined;
     userNote?: string | null | undefined;
+}, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+    req: http.IncomingMessage;
+}>>>;
+
+declare const func$1k: _badaimweeb_js_dtsocket.Procedure<{
+    username: string;
+    huges: {
+        count: number;
+        key: string;
+        type: "normal" | "golden" | "rainbow";
+        shiny: boolean;
+    }[];
+    voucher?: string | null | undefined;
+    note?: string | null | undefined;
 }, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -458,6 +478,12 @@ declare const func$_: _badaimweeb_js_dtsocket.Procedure<void, {
         region: string;
         value: number;
         amount: number;
+    } | {
+        type: "roblox-ps99-huge";
+        huges: {
+            name: string;
+            count: number;
+        }[];
     };
 }[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
@@ -652,6 +678,30 @@ declare const func$U: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     returnData?: {
         code: string[];
     };
+} | {
+    type: "roblox-ps99-huge";
+    data: {
+        huges: {
+            key: string;
+            name: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            originalPrice: number;
+            refundValue: number;
+        }[];
+        username: string;
+    };
+    partialProcessedData?: {
+        processed: {
+            key: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            price: number;
+        }[];
+    };
+    returnData?: null;
 })>, "value" | "pcid" | "createdAt" | "type" | "data" | "status" | "updatedAt" | "note" | "userNote" | "partialProcessedData" | "returnData">[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -963,6 +1013,30 @@ declare const func$w: _badaimweeb_js_dtsocket.Procedure<{
     returnData?: {
         code: string[];
     };
+} | {
+    type: "roblox-ps99-huge";
+    data: {
+        huges: {
+            key: string;
+            name: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            originalPrice: number;
+            refundValue: number;
+        }[];
+        username: string;
+    };
+    partialProcessedData?: {
+        processed: {
+            key: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            price: number;
+        }[];
+    };
+    returnData?: null;
 })> | null, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1054,6 +1128,30 @@ declare const func$v: _badaimweeb_js_dtsocket.Procedure<{
     returnData?: {
         code: string[];
     };
+} | {
+    type: "roblox-ps99-huge";
+    data: {
+        huges: {
+            key: string;
+            name: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            originalPrice: number;
+            refundValue: number;
+        }[];
+        username: string;
+    };
+    partialProcessedData?: {
+        processed: {
+            key: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            price: number;
+        }[];
+    };
+    returnData?: null;
 })> | null, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1145,6 +1243,30 @@ declare const func$u: _badaimweeb_js_dtsocket.Procedure<{
     returnData?: {
         code: string[];
     };
+} | {
+    type: "roblox-ps99-huge";
+    data: {
+        huges: {
+            key: string;
+            name: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            originalPrice: number;
+            refundValue: number;
+        }[];
+        username: string;
+    };
+    partialProcessedData?: {
+        processed: {
+            key: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            price: number;
+        }[];
+    };
+    returnData?: null;
 })> | null, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1228,7 +1350,7 @@ declare const func$k: _badaimweeb_js_dtsocket.Procedure<number, {
     note: string | undefined;
     createdAt: number;
     updatedAt: number;
-    type: "robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire" | "steam-wallet";
+    type: "robux" | "roblox-gamepass" | "minecraft" | "blox-fruit-hire" | "steam-wallet" | "roblox-ps99-huge";
     data: Extract<mongodb.WithId<{
         pcid: number;
         target: string;
@@ -1313,6 +1435,30 @@ declare const func$k: _badaimweeb_js_dtsocket.Procedure<number, {
         returnData?: {
             code: string[];
         };
+    } | {
+        type: "roblox-ps99-huge";
+        data: {
+            huges: {
+                key: string;
+                name: string;
+                type: "normal" | "golden" | "rainbow";
+                shiny: boolean;
+                count: number;
+                originalPrice: number;
+                refundValue: number;
+            }[];
+            username: string;
+        };
+        partialProcessedData?: {
+            processed: {
+                key: string;
+                type: "normal" | "golden" | "rainbow";
+                shiny: boolean;
+                count: number;
+                price: number;
+            }[];
+        };
+        returnData?: null;
     })>, {
         type: "roblox-gamepass";
     }>["data"];
@@ -1320,6 +1466,14 @@ declare const func$k: _badaimweeb_js_dtsocket.Procedure<number, {
         passesProcessed: string[];
     } | {
         typeProcessed: string[];
+    } | {
+        processed: {
+            key: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            price: number;
+        }[];
     } | null | undefined;
 }[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
@@ -1409,6 +1563,30 @@ declare const func$j: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
     returnData?: {
         code: string[];
     };
+} | {
+    type: "roblox-ps99-huge";
+    data: {
+        huges: {
+            key: string;
+            name: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            originalPrice: number;
+            refundValue: number;
+        }[];
+        username: string;
+    };
+    partialProcessedData?: {
+        processed: {
+            key: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            price: number;
+        }[];
+    };
+    returnData?: null;
 })>, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1497,6 +1675,30 @@ declare const func$i: _badaimweeb_js_dtsocket.Procedure<number, mongodb.WithId<{
     returnData?: {
         code: string[];
     };
+} | {
+    type: "roblox-ps99-huge";
+    data: {
+        huges: {
+            key: string;
+            name: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            originalPrice: number;
+            refundValue: number;
+        }[];
+        username: string;
+    };
+    partialProcessedData?: {
+        processed: {
+            key: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            price: number;
+        }[];
+    };
+    returnData?: null;
 })> | null, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1585,6 +1787,30 @@ declare const func$h: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
     returnData?: {
         code: string[];
     };
+} | {
+    type: "roblox-ps99-huge";
+    data: {
+        huges: {
+            key: string;
+            name: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            originalPrice: number;
+            refundValue: number;
+        }[];
+        username: string;
+    };
+    partialProcessedData?: {
+        processed: {
+            key: string;
+            type: "normal" | "golden" | "rainbow";
+            shiny: boolean;
+            count: number;
+            price: number;
+        }[];
+    };
+    returnData?: null;
 })>[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1705,6 +1931,30 @@ declare const func$d: _badaimweeb_js_dtsocket.Procedure<void, {
         returnData?: {
             code: string[];
         };
+    } | {
+        type: "roblox-ps99-huge";
+        data: {
+            huges: {
+                key: string;
+                name: string;
+                type: "normal" | "golden" | "rainbow";
+                shiny: boolean;
+                count: number;
+                originalPrice: number;
+                refundValue: number;
+            }[];
+            username: string;
+        };
+        partialProcessedData?: {
+            processed: {
+                key: string;
+                type: "normal" | "golden" | "rainbow";
+                shiny: boolean;
+                count: number;
+                price: number;
+            }[];
+        };
+        returnData?: null;
     })>[];
     day: number;
     month: number;
@@ -1798,10 +2048,10 @@ declare const func$4: _badaimweeb_js_dtsocket.Procedure<{
     name: string;
     key: string;
     type: "normal" | "golden" | "rainbow";
+    shiny: boolean;
     price: number;
     stock: number;
     image: string;
-    shiny: boolean;
 }[], void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -1837,7 +2087,7 @@ declare const func: _badaimweeb_js_dtsocket.Procedure<{
 }>>>;
 
 declare namespace WSAPI {
-  export { func$z as admin_activeConnections, func$y as admin_addRobloxAccount, func$x as admin_addSteamWalletStock, func$w as admin_changePurchaseNote, func$v as admin_changePurchaseNoteInternal, func$u as admin_changePurchaseStatus, func$t as admin_changeUserPermission, func$s as admin_checkRobloxAccountStatus, func$r as admin_checkRobuxAmountViolation, func$q as admin_checkRobuxAmountViolationPurchase, func$p as admin_createTransaction, func$o as admin_createVoucher, func$n as admin_deleteSteamWalletStock, func$m as admin_flagUserReseller, func$l as admin_getAvailableHugeTypes, func$k as admin_getGamepassPendingReferences, func$j as admin_getLatestPurchase, func$i as admin_getPurchase, func$h as admin_getPurchases, func$g as admin_getRobloxAccounts, func$f as admin_getRobuxRequired, func$e as admin_getSteamWalletStock, func$d as admin_getTodayPurchases, func$c as admin_getUser, func$b as admin_getUserList, func$a as admin_getVouchers, func$9 as admin_removeRobloxAccount, func$8 as admin_removeVoucher, func$7 as admin_updateBloxFruitHireAvailable, func$6 as admin_updateGamepasses, func$5 as admin_updateMinecraftPremiumRate, func$4 as admin_updatePS99HugeStock, func$3 as admin_updateRobuxLimit, func$2 as admin_updateRobuxRate, func$1 as admin_updateSteamWalletTypes, func as api_registerWaitlist, func$1l as buyGamepass, func$1k as buyMinecraftPremium, func$1j as buyRobux, func$1i as buySteamWallet, func$1h as cancelPayment, func$1g as cancelPurchase, func$1f as checkVoucher, func$1e as createBloxFruitHireRequest, func$1d as createTSRTransaction, func$1c as createVNBankTransaction, func$1b as depositPhoneCard, func$1a as generateOldLoginClaim, func$19 as getBloxFruitHireAvailable, func$18 as getBloxFruitHireQueueNumber, func$17 as getCaseInventory, func$16 as getDepositCount, func$15 as getEmails, func$14 as getGachaCases, func$13 as getGachaHistory, func$12 as getGamepassCreationLink, func$11 as getGamepasses, func$10 as getGlobalDepositMonth, func$$ as getLatestGachaFeed, func$_ as getLatestPurchases, func$Z as getMinecraftPremiumRate, func$W as getPS99HugeStock, func$Y as getPayments, func$X as getPrivacySetting, func$V as getPurchaseCount, func$U as getPurchases, func$T as getRobuxLimit, func$S as getRobuxRate, func$R as getRobuxRateBuyback, func$Q as getSteamWalletTypes, func$P as getTopDeposit, func$O as getTopDepositFull, func$N as getTransactions, func$M as getUserCount, func$L as getUserInfo, func$K as getVNBanks, func$J as getVNPhoneCardDisplayName, func$I as getVNPhoneCardFee, func$H as getVouchMessages, func$G as login, func$F as logout, func$E as openGachaCase, func$D as robuxAutoAvailable, func$C as sellRobuxBuyback, func$B as setPrivacySetting, func$A as switchToken };
+  export { func$z as admin_activeConnections, func$y as admin_addRobloxAccount, func$x as admin_addSteamWalletStock, func$w as admin_changePurchaseNote, func$v as admin_changePurchaseNoteInternal, func$u as admin_changePurchaseStatus, func$t as admin_changeUserPermission, func$s as admin_checkRobloxAccountStatus, func$r as admin_checkRobuxAmountViolation, func$q as admin_checkRobuxAmountViolationPurchase, func$p as admin_createTransaction, func$o as admin_createVoucher, func$n as admin_deleteSteamWalletStock, func$m as admin_flagUserReseller, func$l as admin_getAvailableHugeTypes, func$k as admin_getGamepassPendingReferences, func$j as admin_getLatestPurchase, func$i as admin_getPurchase, func$h as admin_getPurchases, func$g as admin_getRobloxAccounts, func$f as admin_getRobuxRequired, func$e as admin_getSteamWalletStock, func$d as admin_getTodayPurchases, func$c as admin_getUser, func$b as admin_getUserList, func$a as admin_getVouchers, func$9 as admin_removeRobloxAccount, func$8 as admin_removeVoucher, func$7 as admin_updateBloxFruitHireAvailable, func$6 as admin_updateGamepasses, func$5 as admin_updateMinecraftPremiumRate, func$4 as admin_updatePS99HugeStock, func$3 as admin_updateRobuxLimit, func$2 as admin_updateRobuxRate, func$1 as admin_updateSteamWalletTypes, func as api_registerWaitlist, func$1m as buyGamepass, func$1l as buyMinecraftPremium, func$1k as buyPS99HugePets, func$1j as buyRobux, func$1i as buySteamWallet, func$1h as cancelPayment, func$1g as cancelPurchase, func$1f as checkVoucher, func$1e as createBloxFruitHireRequest, func$1d as createTSRTransaction, func$1c as createVNBankTransaction, func$1b as depositPhoneCard, func$1a as generateOldLoginClaim, func$19 as getBloxFruitHireAvailable, func$18 as getBloxFruitHireQueueNumber, func$17 as getCaseInventory, func$16 as getDepositCount, func$15 as getEmails, func$14 as getGachaCases, func$13 as getGachaHistory, func$12 as getGamepassCreationLink, func$11 as getGamepasses, func$10 as getGlobalDepositMonth, func$$ as getLatestGachaFeed, func$_ as getLatestPurchases, func$Z as getMinecraftPremiumRate, func$W as getPS99HugeStock, func$Y as getPayments, func$X as getPrivacySetting, func$V as getPurchaseCount, func$U as getPurchases, func$T as getRobuxLimit, func$S as getRobuxRate, func$R as getRobuxRateBuyback, func$Q as getSteamWalletTypes, func$P as getTopDeposit, func$O as getTopDepositFull, func$N as getTransactions, func$M as getUserCount, func$L as getUserInfo, func$K as getVNBanks, func$J as getVNPhoneCardDisplayName, func$I as getVNPhoneCardFee, func$H as getVouchMessages, func$G as login, func$F as logout, func$E as openGachaCase, func$D as robuxAutoAvailable, func$C as sellRobuxBuyback, func$B as setPrivacySetting, func$A as switchToken };
 }
 
 declare const apiServer: _badaimweeb_js_dtsocket_dist_server_js.DTSocketServerInterface<ServerContext<GlobalState, LocalState, EventTable, Session<any>, typeof WSAPI>, {
@@ -1868,6 +2118,12 @@ declare const apiServer: _badaimweeb_js_dtsocket_dist_server_js.DTSocketServerIn
                     region: string;
                     value: number;
                     amount: number;
+                } | {
+                    type: "roblox-ps99-huge";
+                    huges: {
+                        name: string;
+                        count: number;
+                    }[];
                 }];
                 newGacha: [gcid: number, username: string, caseName: string, rarity: number, result: string, timestamp: number];
             };
@@ -1898,6 +2154,12 @@ declare const apiServer: _badaimweeb_js_dtsocket_dist_server_js.DTSocketServerIn
                     region: string;
                     value: number;
                     amount: number;
+                } | {
+                    type: "roblox-ps99-huge";
+                    huges: {
+                        name: string;
+                        count: number;
+                    }[];
                 }];
                 newGacha: [gcid: number, username: string, caseName: string, rarity: number, result: string, timestamp: number];
             };
@@ -1925,6 +2187,12 @@ declare const apiServer: _badaimweeb_js_dtsocket_dist_server_js.DTSocketServerIn
             region: string;
             value: number;
             amount: number;
+        } | {
+            type: "roblox-ps99-huge";
+            huges: {
+                name: string;
+                count: number;
+            }[];
         }];
         newGacha: [gcid: number, username: string, caseName: string, rarity: number, result: string, timestamp: number];
     };
