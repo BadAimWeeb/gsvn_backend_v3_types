@@ -13,32 +13,32 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@badaimweeb/id-system-backend": "git+https://github.com/BadAimWeeb/id-system-backend-types#0941012def5819a3fd006d2821f8f20c460d1ad3",
+    "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#af5b04c0f123d668da0efa80d8b4dc0e052aa35b",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
-    "@types/node": "^20.14.10",
+    "@types/node": "^20.17.10",
     "@types/tough-cookie": "^4.0.5",
-    "@types/ws": "^8.5.11",
-    "rollup": "^4.18.1",
+    "@types/ws": "^8.5.13",
+    "rollup": "^4.29.1",
     "rollup-plugin-dts": "^6.1.1",
-    "typescript": "^5.5.3"
+    "typescript": "^5.7.2"
   },
   "dependencies": {
-    "@badaimweeb/id-system-backend": "git+https://github.com/BadAimWeeb/id-system-backend-types#277d7c0f116a517b2d72cf216fb0f4ac427c3fae",
     "@badaimweeb/js-dtsocket": "^0.8.1",
     "@badaimweeb/js-protov2d": "^1.0.14",
-    "@badaimweeb/xpp": "git+https://github.com/BadAimWeeb/xpp_types.git#af5b04c0f123d668da0efa80d8b4dc0e052aa35b",
     "bcrypt": "^5.1.1",
-    "discord.js": "^14.15.3",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "https-proxy-agent": "^7.0.5",
-    "mongodb": "^6.8.0",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "https-proxy-agent": "^7.0.6",
+    "mongodb": "^6.12.0",
     "node-fetch": "^3.3.2",
-    "socks-proxy-agent": "^8.0.4",
+    "socks-proxy-agent": "^8.0.5",
     "temporal-polyfill": "^0.2.5",
     "tough-cookie": "^4.1.4",
     "ws": "^8.18.0",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "type": "module"
 }
