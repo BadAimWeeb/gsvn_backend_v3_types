@@ -1,4 +1,3 @@
-import * as _badaimweeb_js_dtsocket_dist_server_js from '@badaimweeb/js-dtsocket/dist/server.js';
 import * as _badaimweeb_js_dtsocket_dist_server_csocket_js from '@badaimweeb/js-dtsocket/dist/server_csocket.js';
 import * as _badaimweeb_js_protov2d from '@badaimweeb/js-protov2d';
 import { Session } from '@badaimweeb/js-protov2d';
@@ -9,6 +8,7 @@ import * as ws from 'ws';
 import * as mongodb from 'mongodb';
 import { Collection, WithId } from 'mongodb';
 import * as ip_address from 'ip-address';
+import { DTSocketServerInterface } from '@badaimweeb/js-dtsocket/dist/server.js';
 
 declare const DBGachaCases: mongodb.Collection<{
     caseID: number;
@@ -25,6 +25,17 @@ declare const DBGachaCases: mongodb.Collection<{
         rarity: number;
     }[];
 }>;
+
+declare enum Permission {
+    Normal = 0,
+    Admin = 1,
+    FETest = 2,
+    API = 3,
+    Whale = 11,
+    MVP = 12,
+    VIPPlus = 13,
+    VIP = 14
+}
 
 type DatabaseReturnType<T extends Collection<any>> = T extends Collection<infer U> ? WithId<U> : never;
 
@@ -360,11 +371,25 @@ declare const func$19: _badaimweeb_js_dtsocket.Procedure<void, readonly [({
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$18: _badaimweeb_js_dtsocket.Procedure<void, Record<string, string>, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$18: _badaimweeb_js_dtsocket.Procedure<boolean | void | null | undefined, {
+    currentMonth: number;
+    lastMonth: number;
+    currentYear: number;
+    lastYear: number;
+    data: [username: string, total: number, currentMonth: number, lastMonth: number, reseller: boolean][];
+}, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$17: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$17: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+    req: http.IncomingMessage;
+}>>>;
+
+declare const func$16: _badaimweeb_js_dtsocket.Procedure<void, Record<string, string>, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+    req: http.IncomingMessage;
+}>>>;
+
+declare const func$15: _badaimweeb_js_dtsocket.Procedure<void, {
     [telcoCodename: string]: {
         displayName: string;
         fees: {
@@ -381,7 +406,7 @@ declare const func$17: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$16: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$14: _badaimweeb_js_dtsocket.Procedure<void, {
     messages: {
         avatar: string;
         username: string;
@@ -397,7 +422,7 @@ declare const func$16: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$15: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$13: _badaimweeb_js_dtsocket.Procedure<{
     authToken: string;
     redirectURI: string;
     oldLoginClaim?: string | null | undefined;
@@ -405,11 +430,11 @@ declare const func$15: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$14: _badaimweeb_js_dtsocket.Procedure<string, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$12: _badaimweeb_js_dtsocket.Procedure<string, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$13: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$11: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     password: string;
     game: string;
@@ -420,7 +445,7 @@ declare const func$13: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$12: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$10: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     password: string;
     twoFactor: string;
@@ -431,7 +456,7 @@ declare const func$12: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$11: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$$: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     huges: {
         count: number;
@@ -445,7 +470,7 @@ declare const func$11: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$10: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$_: _badaimweeb_js_dtsocket.Procedure<{
     amount: number;
     taxed: boolean;
     voucher?: string | null | undefined;
@@ -458,7 +483,7 @@ declare const func$10: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$$: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$Z: _badaimweeb_js_dtsocket.Procedure<{
     value: number;
     region: string;
     amount: number;
@@ -468,15 +493,15 @@ declare const func$$: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$_: _badaimweeb_js_dtsocket.Procedure<number, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$Y: _badaimweeb_js_dtsocket.Procedure<number, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$Z: _badaimweeb_js_dtsocket.Procedure<number, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$X: _badaimweeb_js_dtsocket.Procedure<number, void, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$Y: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$W: _badaimweeb_js_dtsocket.Procedure<{
     type: string;
     code: string;
     currentValue: number;
@@ -484,7 +509,7 @@ declare const func$Y: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$X: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$V: _badaimweeb_js_dtsocket.Procedure<{
     type: string[];
     username: string;
     password: string;
@@ -495,7 +520,7 @@ declare const func$X: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$W: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$U: _badaimweeb_js_dtsocket.Procedure<{
     amount: number;
 }, [pmid: number, instruction: {
     account: string;
@@ -507,7 +532,7 @@ declare const func$W: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$V: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$T: _badaimweeb_js_dtsocket.Procedure<{
     amount: number;
     resolver: string;
 }, [pmid: number, instruction: {
@@ -523,7 +548,7 @@ declare const func$V: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$U: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$S: _badaimweeb_js_dtsocket.Procedure<{
     value: number;
     code: string;
     telco: string;
@@ -532,15 +557,15 @@ declare const func$U: _badaimweeb_js_dtsocket.Procedure<{
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$T: _badaimweeb_js_dtsocket.Procedure<number, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$R: _badaimweeb_js_dtsocket.Procedure<number, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$S: _badaimweeb_js_dtsocket.Procedure<void, Record<number, number>, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$Q: _badaimweeb_js_dtsocket.Procedure<void, Record<number, number>, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$R: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$P: _badaimweeb_js_dtsocket.Procedure<void, {
     address: string;
     isVerified: boolean;
     isPublic: boolean;
@@ -548,7 +573,7 @@ declare const func$R: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$Q: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$O: _badaimweeb_js_dtsocket.Procedure<void, {
     assets: string[];
     cases: {
         id: number;
@@ -567,7 +592,7 @@ declare const func$Q: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$P: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
+declare const func$N: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
     gcid: number;
     target: string;
     case: number;
@@ -585,14 +610,14 @@ declare const func$P: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$O: _badaimweeb_js_dtsocket.Procedure<{
+declare const func$M: _badaimweeb_js_dtsocket.Procedure<{
     username: string;
     mode: "gamepass" | "svv";
 }, string, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$N: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
+declare const func$L: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
     pmid: number;
     remotePMID?: string;
     target: string;
@@ -670,7 +695,7 @@ declare const func$N: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$M: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$K: _badaimweeb_js_dtsocket.Procedure<void, {
     usernamePublic: boolean;
     avatarPublic: boolean;
     discordLinkRole: boolean;
@@ -678,7 +703,7 @@ declare const func$M: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$L: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
+declare const func$J: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
     pcid: number;
     target: string;
     value: number;
@@ -790,21 +815,11 @@ declare const func$L: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$K: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
+declare const func$I: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$J: _badaimweeb_js_dtsocket.Procedure<boolean | void | null | undefined, {
-    currentMonth: number;
-    lastMonth: number;
-    currentYear: number;
-    lastYear: number;
-    data: [username: string, total: number, currentMonth: number, lastMonth: number, reseller: boolean][];
-}, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
-    req: http.IncomingMessage;
-}>>>;
-
-declare const func$I: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
+declare const func$H: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithId<{
     txid: number;
     target: string;
     oldBalance: number;
@@ -824,10 +839,6 @@ declare const func$I: _badaimweeb_js_dtsocket.Procedure<void, Pick<mongodb.WithI
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$H: _badaimweeb_js_dtsocket.Procedure<void, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
-    req: http.IncomingMessage;
-}>>>;
-
 declare const func$G: _badaimweeb_js_dtsocket.Procedure<void, {
     uuid: string;
     username: string;
@@ -836,7 +847,7 @@ declare const func$G: _badaimweeb_js_dtsocket.Procedure<void, {
     nameOrder: "first-last" | "last-first";
     balance: number;
     balanceRobux: number;
-    permission: number;
+    permission: Permission;
     joinedAt: number;
     reseller: boolean;
     avatar: string | null;
@@ -1969,7 +1980,7 @@ declare const func$c: _badaimweeb_js_dtsocket.Procedure<string, {
     firstName: string;
     lastName: string;
     nameOrder: "first-last" | "last-first";
-    permission: number;
+    permission: Permission;
     balance: number;
     balanceRobux: number;
     createdAt: number;
@@ -1981,7 +1992,7 @@ declare const func$c: _badaimweeb_js_dtsocket.Procedure<string, {
 declare const func$b: _badaimweeb_js_dtsocket.Procedure<void, {
     uuid: string;
     username: string;
-    permission: number;
+    permission: Permission;
     balance: number;
     balanceRobux: number;
     createdAt: number;
@@ -2088,10 +2099,10 @@ declare const func: _badaimweeb_js_dtsocket.Procedure<{
 }>>>;
 
 declare namespace WSAPI {
-  export { func$z as admin_activeConnections, func$y as admin_addRobloxAccount, func$x as admin_addSteamWalletStock, func$w as admin_changePurchaseNote, func$v as admin_changePurchaseNoteInternal, func$u as admin_changePurchaseStatus, func$t as admin_changeUserPermission, func$s as admin_checkRobloxAccountStatus, func$r as admin_checkRobuxAmountViolation, func$q as admin_checkRobuxAmountViolationPurchase, func$p as admin_createTransaction, func$o as admin_createVoucher, func$n as admin_deleteSteamWalletStock, func$m as admin_flagUserReseller, func$l as admin_getAvailableHugeTypes, func$k as admin_getGamepassPendingReferences, func$j as admin_getLatestPurchase, func$i as admin_getPurchase, func$h as admin_getPurchases, func$g as admin_getRobloxAccounts, func$f as admin_getRobuxRequired, func$e as admin_getSteamWalletStock, func$d as admin_getTodayPurchases, func$c as admin_getUser, func$b as admin_getUserList, func$a as admin_getVouchers, func$9 as admin_removeRobloxAccount, func$8 as admin_removeVoucher, func$7 as admin_updateBloxFruitHireAvailable, func$6 as admin_updateGamepasses, func$5 as admin_updateMinecraftPremiumRate, func$4 as admin_updatePS99HugeStock, func$3 as admin_updateRobuxLimit, func$2 as admin_updateRobuxRate, func$1 as admin_updateSteamWalletTypes, func as api_registerWaitlist, func$13 as buyGamepass, func$12 as buyMinecraftPremium, func$11 as buyPS99HugePets, func$10 as buyRobux, func$$ as buySteamWallet, func$_ as cancelPayment, func$Z as cancelPurchase, func$Y as checkVoucher, func$X as createBloxFruitHireRequest, func$W as createTSRTransaction, func$V as createVNBankTransaction, func$U as depositPhoneCard, func$1m as generateOldLoginClaim, func$1l as getBloxFruitHireAvailable, func$T as getBloxFruitHireQueueNumber, func$S as getCaseInventory, func$1k as getDepositCount, func$R as getEmails, func$Q as getGachaCases, func$P as getGachaHistory, func$O as getGamepassCreationLink, func$1j as getGamepasses, func$1i as getGlobalDepositMonth, func$1h as getLatestGachaFeed, func$1g as getLatestPurchases, func$1f as getMinecraftPremiumRate, func$1e as getPS99HugeStock, func$N as getPayments, func$M as getPrivacySetting, func$1d as getPurchaseCount, func$L as getPurchases, func$1c as getRobuxLimit, func$1b as getRobuxRate, func$K as getRobuxRateBuyback, func$1a as getSteamWalletTypes, func$19 as getTopDeposit, func$J as getTopDepositFull, func$I as getTransactions, func$H as getUserCount, func$G as getUserInfo, func$F as getVNBanks, func$18 as getVNPhoneCardDisplayName, func$17 as getVNPhoneCardFee, func$16 as getVouchMessages, func$15 as login, func$E as logout, func$D as openGachaCase, func$C as robuxAutoAvailable, func$B as sellRobuxBuyback, func$A as setPrivacySetting, func$14 as switchToken };
+  export { func$z as admin_activeConnections, func$y as admin_addRobloxAccount, func$x as admin_addSteamWalletStock, func$w as admin_changePurchaseNote, func$v as admin_changePurchaseNoteInternal, func$u as admin_changePurchaseStatus, func$t as admin_changeUserPermission, func$s as admin_checkRobloxAccountStatus, func$r as admin_checkRobuxAmountViolation, func$q as admin_checkRobuxAmountViolationPurchase, func$p as admin_createTransaction, func$o as admin_createVoucher, func$n as admin_deleteSteamWalletStock, func$m as admin_flagUserReseller, func$l as admin_getAvailableHugeTypes, func$k as admin_getGamepassPendingReferences, func$j as admin_getLatestPurchase, func$i as admin_getPurchase, func$h as admin_getPurchases, func$g as admin_getRobloxAccounts, func$f as admin_getRobuxRequired, func$e as admin_getSteamWalletStock, func$d as admin_getTodayPurchases, func$c as admin_getUser, func$b as admin_getUserList, func$a as admin_getVouchers, func$9 as admin_removeRobloxAccount, func$8 as admin_removeVoucher, func$7 as admin_updateBloxFruitHireAvailable, func$6 as admin_updateGamepasses, func$5 as admin_updateMinecraftPremiumRate, func$4 as admin_updatePS99HugeStock, func$3 as admin_updateRobuxLimit, func$2 as admin_updateRobuxRate, func$1 as admin_updateSteamWalletTypes, func as api_registerWaitlist, func$11 as buyGamepass, func$10 as buyMinecraftPremium, func$$ as buyPS99HugePets, func$_ as buyRobux, func$Z as buySteamWallet, func$Y as cancelPayment, func$X as cancelPurchase, func$W as checkVoucher, func$V as createBloxFruitHireRequest, func$U as createTSRTransaction, func$T as createVNBankTransaction, func$S as depositPhoneCard, func$1m as generateOldLoginClaim, func$1l as getBloxFruitHireAvailable, func$R as getBloxFruitHireQueueNumber, func$Q as getCaseInventory, func$1k as getDepositCount, func$P as getEmails, func$O as getGachaCases, func$N as getGachaHistory, func$M as getGamepassCreationLink, func$1j as getGamepasses, func$1i as getGlobalDepositMonth, func$1h as getLatestGachaFeed, func$1g as getLatestPurchases, func$1f as getMinecraftPremiumRate, func$1e as getPS99HugeStock, func$L as getPayments, func$K as getPrivacySetting, func$1d as getPurchaseCount, func$J as getPurchases, func$1c as getRobuxLimit, func$1b as getRobuxRate, func$I as getRobuxRateBuyback, func$1a as getSteamWalletTypes, func$19 as getTopDeposit, func$18 as getTopDepositFull, func$H as getTransactions, func$17 as getUserCount, func$G as getUserInfo, func$F as getVNBanks, func$16 as getVNPhoneCardDisplayName, func$15 as getVNPhoneCardFee, func$14 as getVouchMessages, func$13 as login, func$E as logout, func$D as openGachaCase, func$C as robuxAutoAvailable, func$B as sellRobuxBuyback, func$A as setPrivacySetting, func$12 as switchToken };
 }
 
-declare const apiServer: _badaimweeb_js_dtsocket_dist_server_js.DTSocketServerInterface<ServerContext<GlobalState, LocalState, EventTable, Session<any>, typeof WSAPI>, {
+declare const apiServer: DTSocketServerInterface<ServerContext<GlobalState, LocalState, EventTable, Session<any>, typeof WSAPI>, {
     cs: {} & {
         "internal:new-session": [_badaimweeb_js_dtsocket_dist_server_csocket_js.DTSocketServer_CSocket<ServerContext<GlobalState, LocalState, EventTable, Session<any>, typeof WSAPI>, {
             cs: {} & {
@@ -2199,5 +2210,6 @@ declare const apiServer: _badaimweeb_js_dtsocket_dist_server_js.DTSocketServerIn
     };
 }>;
 type Server = typeof apiServer;
+type ServerWithoutProcedures = DTSocketServerInterface<ServerContext<GlobalState, LocalState, EventTable, Session, {}>>;
 
-export type { Server };
+export type { Server, ServerWithoutProcedures };
