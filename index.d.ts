@@ -1857,6 +1857,7 @@ declare const func$g: _badaimweeb_js_dtsocket.Procedure<void, {
 declare const func$f: _badaimweeb_js_dtsocket.Procedure<void, {
     key: string;
     name: string;
+    note: string;
     params: string;
 }[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
