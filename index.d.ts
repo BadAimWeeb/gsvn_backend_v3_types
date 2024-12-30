@@ -221,7 +221,8 @@ declare enum ErrorCode {
     VOUCHER_PURCHASE_VALUE_TOO_LOW = "GSVN#16",
     ALREADY_API_USER = "GSVN#17",
     EMAIL_NOT_VERIFIED = "GSVN#18",
-    PHONE_NOT_VERIFIED = "GSVN#19"
+    PHONE_NOT_VERIFIED = "GSVN#19",
+    VOUCHER_CONDITION_NOT_MET = "GSVN#20"
 }
 
 declare const func$1o: _badaimweeb_js_dtsocket.Procedure<{
@@ -505,6 +506,7 @@ declare const func$Y: _badaimweeb_js_dtsocket.Procedure<{
     type: string;
     code: string;
     currentValue: number;
+    itemContext?: any;
 }, number, _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
@@ -2029,6 +2031,12 @@ declare const func$a: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
         } | {
             type: "maxAmount";
             maxAmount: number;
+        } | {
+            type: "permissions";
+            permissions: number[];
+        } | {
+            type: "userLocked";
+            uuid: string;
         })[];
     };
     amount: number;
