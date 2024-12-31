@@ -2042,6 +2042,7 @@ declare const func$a: _badaimweeb_js_dtsocket.Procedure<void, mongodb.WithId<{
     amount: number;
     amountLeft: number;
     expires: number;
+    public?: boolean;
 }>[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
