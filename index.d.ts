@@ -873,7 +873,11 @@ declare const func$I: _badaimweeb_js_dtsocket.Procedure<void, {
     req: http.IncomingMessage;
 }>>>;
 
-declare const func$H: _badaimweeb_js_dtsocket.Procedure<void, {
+declare const func$H: _badaimweeb_js_dtsocket.Procedure<void | {
+    type: string;
+    currentValue: number;
+    itemContext?: any;
+}, {
     code: string;
     public: boolean;
     used?: number;
@@ -890,6 +894,7 @@ declare const func$H: _badaimweeb_js_dtsocket.Procedure<void, {
         maxAmount: number;
     })[];
     expires: number;
+    valid: boolean;
 }[], _badaimweeb_js_dtsocket.ServerContext<GlobalState, LocalState, EventTable, _badaimweeb_js_protov2d.Session<ws.WebSocket & {
     req: http.IncomingMessage;
 }>>>;
